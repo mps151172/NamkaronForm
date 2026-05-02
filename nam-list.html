@@ -1,3 +1,236 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>নামের তালিকা - জয় গুরু</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #fef5e8 0%, #f0e6d2 100%);
+            font-family: 'Segoe UI', 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #fffef7;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(115deg, #1a3c2c, #2a5a3a);
+            padding: 20px 24px;
+            color: #ffefc0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .header h1 {
+            font-size: 1.6rem;
+        }
+        .header h1 span {
+            animation: pulse 2s infinite;
+            display: inline-block;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); text-shadow: 0 0 8px #ffd700; }
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            background: #d4a373;
+            color: #2c2c2c;
+        }
+        .btn:hover {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+        .btn-primary { background: #d4a373; color: #2c2c2c; }
+        .btn-info { background: #2c5a8c; color: white; }
+        .btn-warning { background: #e9b35f; color: #2c2c2c; }
+        .form-body {
+            padding: 24px;
+        }
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            border: 1px solid #e2d4ba;
+        }
+        .search-box input {
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 250px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+            max-height: 70vh;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 1000px;
+        }
+        th, td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-size: 0.85rem;
+        }
+        th {
+            background: #e8f0e0;
+            color: #2c5a2e;
+            position: sticky;
+            top: 0;
+        }
+        tr:hover {
+            background: #f9f5e8;
+        }
+        .status-msg {
+            padding: 12px 20px;
+            border-radius: 28px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: none;
+        }
+        .status-success {
+            background: #d0ffd0;
+            color: #2d6a4f;
+            display: block;
+            border-left: 5px solid #2d6a4f;
+        }
+        .status-error {
+            background: #ffe0e0;
+            color: #c23d2e;
+            display: block;
+            border-left: 5px solid #c23d2e;
+        }
+        .status-loading {
+            background: #fff0d0;
+            color: #c97e2c;
+            display: block;
+            border-left: 5px solid #c97e2c;
+        }
+        .stats {
+            background: #e8f0e0;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2c5a2e;
+            display: inline-block;
+        }
+        .loading-spinner {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2rem;
+            color: #2c5a2e;
+        }
+        @media print {
+            .no-print { display: none; }
+            .container { box-shadow: none; }
+            body { background: white; padding: 0; }
+            .table-wrapper { max-height: none; }
+        }
+        @media (max-width: 768px) {
+            th, td { font-size: 0.7rem; padding: 8px 5px; }
+            .btn { padding: 6px 12px; font-size: 0.75rem; }
+            .header h1 { font-size: 1.2rem; }
+            .search-box input { width: 150px; }
+            .form-body { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>📋 <span>জয় গুরু</span> - নামের তালিকা</h1>
+        <a href="index.html" class="btn no-print">🏠 ফর্মে ফিরুন</a>
+    </div>
+    <div class="form-body">
+        <div id="statusMsg" class="status-msg"></div>
+        
+        <div class="toolbar no-print">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="searchInput" placeholder="নাম, জেলা, মোবাইল দিয়ে খুঁজুন..." onkeyup="searchData()">
+            </div>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="btn btn-info" onclick="exportToCSV()">📎 CSV ডাউনলোড</button>
+                <button class="btn btn-primary" onclick="window.print()">🖨️ প্রিন্ট করুন</button>
+                <button class="btn btn-warning" onclick="refreshData()">🔄 রিফ্রেশ</button>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+            <div class="stats" id="statsCount">📊 মোট ডাটা: 0 টি</div>
+            <div class="stats" id="filterStats"></div>
+        </div>
+        
+        <div class="table-wrapper">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>টাইমস্ট্যাম্প</th>
+                        <th>পিতার নাম</th>
+                        <th>মাতার নাম</th>
+                        <th>মোবাইল</th>
+                        <th>পিতামহ</th>
+                        <th>প্রপিতামহ</th>
+                        <th>জন্ম তারিখ</th>
+                        <th>জন্ম সময়</th>
+                        <th>লিঙ্গ</th>
+                        <th>গ্রাম</th>
+                        <th>জেলা</th>
+                        <th>উপজেলা</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="13" class="loading-spinner">⏳ লোড হচ্ছে...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <script>
 // ============================================
 // গ্লোবাল ভেরিয়েবল
@@ -6,21 +239,21 @@ let allData = [];
 let filteredData = [];
 
 // ============================================
-// আপনার নতুন URL এখানে দিন
+// আপনার Google Apps Script URL এখানে দিন
 // ============================================
-const SHEET_API_URL = "https://script.google.com/macros/s/YOUR_NEW_URL/exec";
+const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbwzuV3_Ce0bNK14BiY5vjT25CkZCeFKX9FqeThTMGokxHItXb_cGi_wSS4L_36VAPUu/exec";
 
 // ============================================
-// ডাটা লোড (GET) - সঠিক সংস্করণ
+// ডাটা লোড (GET)
 // ============================================
 async function loadData() {
     const tbody = document.getElementById("tableBody");
-    const msgDiv = document.getElementById("statusMsg");
     
     try {
-        tbody.innerHTML = `<tr><td colspan="14" style="text-align:center; padding:40px;">⏳ লোড হচ্ছে...</td></tr>`;
+        showMessage("⏳ ডাটা লোড হচ্ছে...", "loading");
+        tbody.innerHTML = '<tr><td colspan="13" class="loading-spinner">⏳ লোড হচ্ছে...</td></tr>';
         
-        const response = await fetch(`${SHEET_API_URL}`, {
+        const response = await fetch(`${SHEET_API_URL}?read=1&t=${Date.now()}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json'
@@ -32,8 +265,11 @@ async function loadData() {
         
         if(result.status === "success") {
             allData = result.data || [];
+            // ফিল্টার করে খালি সারি বাদ দেওয়া
+            allData = allData.filter(row => row && row[0] && row[0].toString().trim() !== "");
             filteredData = [...allData];
             renderTable();
+            updateStats();
             
             if(allData.length === 0) {
                 showMessage("📭 এখনো কোনো ডাটা নেই। ফর্ম থেকে ডাটা জমা দিন।", "error");
@@ -47,7 +283,7 @@ async function loadData() {
     } catch(e) {
         console.error("Load Error:", e);
         showMessage("❌ ডাটা লোড করতে সমস্যা: " + e.message, "error");
-        tbody.innerHTML = `<tr><td colspan="14" style="text-align:center; padding:40px;">❌ ডাটা লোড হয়নি। API URL চেক করুন।</td></tr>`;
+        tbody.innerHTML = '<tr><td colspan="13" style="text-align:center; padding:40px;">❌ ডাটা লোড হয়নি। <br> API URL চেক করুন।</td></tr>';
     }
 }
 
@@ -58,14 +294,16 @@ function renderTable() {
     const tbody = document.getElementById("tableBody");
     
     if(!filteredData || filteredData.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="14" style="text-align:center; padding:40px;">📭 কোনো ডাটা নেই</td></tr>`;
+        tbody.innerHTML = '<tr><td colspan="13" style="text-align:center; padding:40px;">📭 কোনো ডাটা নেই</td></tr>';
         return;
     }
     
-    tbody.innerHTML = filteredData.map((row, idx) => `
-        <tr>
-            <td>${idx + 1}</td>
-            <td>${row[0] || ''}</td>
+    let html = '';
+    for(let i = 0; i < filteredData.length; i++) {
+        const row = filteredData[i];
+        html += `<tr>
+            <td>${i + 1}</td>
+            <td style="white-space: nowrap;">${row[0] || ''}</td>
             <td>${row[1] || ''}</td>
             <td>${row[2] || ''}</td>
             <td>${row[3] || ''}</td>
@@ -77,29 +315,46 @@ function renderTable() {
             <td>${row[9] || ''}</td>
             <td>${row[10] || ''}</td>
             <td>${row[11] || ''}</td>
-            <td class="no-print">
-                <div class="action-btns">
-                    <button class="btn btn-warning" onclick="editRow(${allData.indexOf(row)})">✏️ এডিট</button>
-                    <button class="btn btn-danger" onclick="deleteRow(${allData.indexOf(row)})">🗑️ ডিলিট</button>
-                </div>
-            </td>
-        </tr>
-    `).join('');
+        </tr>`;
+    }
+    tbody.innerHTML = html;
 }
 
 // ============================================
 // সার্চ ফাংশন
 // ============================================
 function searchData() {
-    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase().trim();
+    
     if(!searchTerm) {
         filteredData = [...allData];
     } else {
-        filteredData = allData.filter(row => 
-            JSON.stringify(row).toLowerCase().includes(searchTerm)
-        );
+        filteredData = allData.filter(row => {
+            return row.some(cell => 
+                cell && cell.toString().toLowerCase().includes(searchTerm)
+            );
+        });
     }
     renderTable();
+    updateFilterStats();
+}
+
+// ============================================
+// স্ট্যাটস আপডেট
+// ============================================
+function updateStats() {
+    const statsEl = document.getElementById("statsCount");
+    statsEl.innerHTML = `📊 মোট ডাটা: ${allData.length} টি`;
+    updateFilterStats();
+}
+
+function updateFilterStats() {
+    const filterStatsEl = document.getElementById("filterStats");
+    if(filteredData.length !== allData.length) {
+        filterStatsEl.innerHTML = `🔍 দেখানো হচ্ছে: ${filteredData.length} টি`;
+    } else {
+        filterStatsEl.innerHTML = "";
+    }
 }
 
 // ============================================
@@ -110,14 +365,16 @@ function showMessage(msg, type) {
     el.innerText = msg;
     el.className = `status-msg status-${type}`;
     setTimeout(() => {
+        el.className = "status-msg";
         el.style.display = "none";
-    }, 4000);
+    }, 5000);
 }
 
 // ============================================
 // রিফ্রেশ
 // ============================================
 function refreshData() {
+    document.getElementById("searchInput").value = "";
     loadData();
 }
 
@@ -134,7 +391,11 @@ function exportToCSV() {
     const csvRows = [headers];
     
     allData.forEach(row => {
-        csvRows.push(row.map(cell => `"${(cell || '').toString().replace(/"/g, '""')}"`));
+        const escapedRow = row.map(cell => {
+            const cellStr = (cell || '').toString();
+            return `"${cellStr.replace(/"/g, '""')}"`;
+        });
+        csvRows.push(escapedRow);
     });
     
     const csvContent = csvRows.map(row => row.join(",")).join("\n");
@@ -142,7 +403,7 @@ function exportToCSV() {
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
     link.href = url;
-    link.setAttribute("download", "jay_guru_nam_list.csv");
+    link.setAttribute("download", `jay_guru_nam_list_${new Date().toISOString().slice(0,19).replace(/:/g, '-')}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -150,15 +411,10 @@ function exportToCSV() {
     showMessage("📎 CSV ফাইল ডাউনলোড শুরু হয়েছে", "success");
 }
 
-// এডিট/ডিলিট ফাংশন (লোকাল)
-function editRow(index) {
-    alert("এডিট ফিচার: আপনি Google Sheet এ গিয়ে ডাটা এডিট করতে পারেন।\nশীট খুলুন এবং সারি এডিট করুন।");
-}
-
-function deleteRow(index) {
-    alert("ডিলিট ফিচার: আপনি Google Sheet এ গিয়ে ডাটা ডিলিট করতে পারেন।\nশীট খুলুন এবং সারি ডিলিট করুন।");
-}
-
+// ============================================
 // পেজ লোডে ডাটা লোড
+// ============================================
 loadData();
 </script>
+</body>
+</html>
