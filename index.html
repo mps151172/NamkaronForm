@@ -19,17 +19,6 @@
             font-family: 'Hind Siliguri', 'Segoe UI', 'Noto Sans Bengali', sans-serif;
             padding: 16px 12px;
             min-height: 100vh;
-            position: relative;
-        }
-        
-        body::before {
-            content: "🕉";
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            font-size: 70px;
-            opacity: 0.03;
-            pointer-events: none;
         }
         
         .container {
@@ -446,11 +435,10 @@ const districtToUpazila = {
     "নেত্রকোণা": ["নেত্রকোণা সদর", "বারহাট্টা", "দুর্গাপুর", "কলমাকান্দা", "মদন", "মোহনগঞ্জ", "কেন্দুয়া", "আটপাড়া", "পূর্বধলা", "খালিয়াজুড়ি"]
 };
 
-// জেলা ড্রপডাউন পপুলেট
+// জেলা ড্রপডাউন পপুলেট (সাজানো)
 const jelaSelect = document.getElementById("jela");
 const upazilaSelect = document.getElementById("upazila");
 
-// জেলাগুলো সাজানো আকারে যোগ করা
 const sortedDistricts = Object.keys(districtToUpazila).sort();
 for (let jela of sortedDistricts) {
     let option = new Option(jela, jela);
@@ -471,8 +459,8 @@ jelaSelect.addEventListener("change", function() {
     }
 });
 
-// Google Apps Script URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkrxvWNqHTo9iRs69QdEWbNFijl1DyN-K_BxQfbYGIDJ6f8JG4xjuGS-YoGUCcT_bZ/exec";
+// ✅ আপনার নতুন Google Apps Script URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEOkpjuI9-BNZgHl8Lz-sV5eFjqnBVV2pifyXvOwgvvchMrFWSFCgg0C61QvmO5dqo/exec";
 
 const form = document.getElementById("namkaranForm");
 const msgDiv = document.getElementById("message");
