@@ -114,7 +114,7 @@ jelaSelect.addEventListener("change", function() {
 });
 
 // ***** সঠিক Google Apps Script URL (শুধু একটি) *****
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzxuGK_6iqo7ApjuJZiApA8ZBHA_v_11zMve5f_WEIARZVTLpK68vPTb9m6kcAnClQo/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxUwDLG2_xSGpbFI0NYVkpwghPiqdwUick0oOWPrblEDRmGQVcL9-RNQZeDCDSn1-WW/exec";
 
 const form = document.getElementById("namkaranForm");
 const msgDiv = document.getElementById("message");
@@ -171,8 +171,7 @@ form.addEventListener("submit", async function(e) {
             msgDiv.className = "";
         }, 5000);
         
-    } catch(error) {
-        msgDiv.innerHTML = "❌ নেটওয়ার্ক সমস্যা! আবার চেষ্টা করুন।";
+    } catch(error) {/msgDiv.innerHTML = "❌ নেটওয়ার্ক সমস্যা! আবার চেষ্টা করুন।";
         msgDiv.className = "error";
         console.error("Error:", error);
     }
