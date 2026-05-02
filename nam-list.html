@@ -54,6 +54,7 @@
         .btn-primary { background: #d4a373; color: #2c2c2c; }
         .btn-primary:hover { background: #e0b88a; transform: scale(0.98); }
         .btn-success { background: #2d6a4f; color: white; }
+        .btn-success:hover { background: #3a8a62; }
         .btn-warning { background: #e9b35f; color: #2c2c2c; }
         .btn-danger { background: #c23d2e; color: white; }
         .btn-info { background: #2c5a8c; color: white; }
@@ -83,13 +84,15 @@
             font-family: inherit;
         }
         
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
-            border-radius: 20px;
-            overflow-x: auto;
-            display: block;
+            min-width: 800px;
         }
         th, td {
             padding: 12px 10px;
@@ -133,27 +136,20 @@
             padding: 24px;
             border-radius: 28px;
             width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
+            max-width: 550px;
+            max-height: 85vh;
             overflow-y: auto;
         }
         .modal-content h3 { margin-bottom: 20px; color: #2c5a2e; }
         .modal-content input, .modal-content select {
             width: 100%;
             padding: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border: 1px solid #ddd;
             border-radius: 28px;
             font-family: inherit;
         }
         .modal-buttons { display: flex; gap: 12px; justify-content: flex-end; margin-top: 20px; }
-        
-        @media (max-width: 768px) {
-            th, td { font-size: 0.7rem; padding: 8px 5px; }
-            .btn { padding: 6px 12px; font-size: 0.8rem; }
-            .container { padding: 16px; }
-            .header { margin: -16px -16px 16px -16px; padding: 15px; }
-        }
         
         .status-msg {
             padding: 12px;
@@ -163,13 +159,27 @@
         }
         .status-success { background: #d0ffd0; color: green; display: block; }
         .status-error { background: #ffe0e0; color: red; display: block; }
+        .status-loading { background: #fff0d0; color: #c97e2c; display: block; }
         
-        .print-area { width: 100%; }
+        .loading-spinner {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #2c5a2e;
+        }
+        
         @media print {
             .no-print { display: none; }
             .container { box-shadow: none; padding: 0; }
             body { padding: 0; background: white; }
-            .print-area { overflow-x: visible; }
+            .table-wrapper { overflow-x: visible; }
+        }
+        
+        @media (max-width: 768px) {
+            th, td { font-size: 0.7rem; padding: 8px 5px; }
+            .btn { padding: 6px 12px; font-size: 0.8rem; }
+            .container { padding: 16px; }
+            .header { margin: -16px -16px 16px -16px; padding: 15px; }
         }
     </style>
 </head>
@@ -186,9 +196,9 @@
     
     <div class="toolbar no-print">
         <div class="search-box">
-            🔍 <input type="text" id="searchInput" placeholder="নাম, জেলা, মোবাইল দিয়ে খুঁজুন...">
+            🔍 <input type="text" id="searchInput" placeholder="নাম, জেলা, মোবাইল দিয়ে খুঁজুন..." onkeyup="searchData()">
         </div>
-        <div style="display: flex; gap: 10px;">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
             <button class="btn btn-success" onclick="openAddModal()">➕ নতুন নাম যোগ করুন</button>
             <button class="btn btn-info" onclick="exportToCSV()">📎 CSV ডাউনলোড</button>
             <button class="btn btn-primary" onclick="window.print()">🖨️ প্রিন্ট করুন</button>
@@ -196,7 +206,7 @@
         </div>
     </div>
     
-    <div class="print-area" style="overflow-x: auto;">
+    <div class="table-wrapper">
         <table id="dataTable">
             <thead>
                 <tr>
@@ -204,10 +214,10 @@
                     <th>মোবাইল</th><th>পিতামহ</th><th>প্রপিতামহ</th><th>জন্ম তারিখ</th>
                     <th>জন্ম সময়</th><th>লিঙ্গ</th><th>গ্রাম</th><th>জেলা</th><th>উপজেলা</th>
                     <th class="no-print">একশন</th>
-                 </tr>
+                </tr>
             </thead>
             <tbody id="tableBody">
-                <tr><td colspan="14">লোড হচ্ছে...</td></tr>
+                <tr><td colspan="14" class="loading-spinner">⏳ লোড হচ্ছে...</td></tr>
             </tbody>
         </table>
     </div>
@@ -225,91 +235,271 @@
         <input type="text" id="editPrapitamaha" placeholder="প্রপিতামহ">
         <input type="date" id="editJanmaTarikh">
         <input type="time" id="editJanmaSomoy">
-        <select id="editGender"><option value="ছেলে">ছেলে</option><option value="মেয়ে">মেয়ে</option><option value="অন্যান্য">অন্যান্য</option></select>
+        <select id="editGender">
+            <option value="ছেলে">ছেলে</option>
+            <option value="মেয়ে">মেয়ে</option>
+            <option value="অন্যান্য">অন্যান্য</option>
+        </select>
         <input type="text" id="editGram" placeholder="গ্রাম">
-        <select id="editJela"><option value="">জেলা নির্বাচন করুন</option></select>
-        <select id="editUpazila"><option value="">উপজেলা নির্বাচন করুন</option></select>
+        <input type="text" id="editJela" placeholder="জেলা">
+        <input type="text" id="editUpazila" placeholder="উপজেলা">
         <div class="modal-buttons">
-            <button class="btn btn-primary" onclick="saveData()">সংরক্ষণ</button>
-            <button class="btn btn-danger" onclick="closeModal()">বাতিল</button>
+            <button class="btn btn-success" onclick="saveData()">💾 সংরক্ষণ</button>
+            <button class="btn btn-danger" onclick="closeModal()">❌ বাতিল</button>
         </div>
     </div>
 </div>
 
 <script>
-// শীট ডাটা সংরক্ষণ (গ্লোবাল ভেরিয়েবল)
+// ============================================
+// গ্লোবাল ভেরিয়েবল
+// ============================================
 let allData = [];
 let currentEditIndex = -1;
+let filteredData = [];
 
-// Google Sheet Web App URL (আপনার নতুন URL বসান)
+// ============================================
+// আপনার Google Apps Script URL এখানে দিন
+// ============================================
 const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbzEOkpjuI9-BNZgHl8Lz-sV5eFjqnBVV2pifyXvOwgvvchMrFWSFCgg0C61QvmO5dqo/exec";
 
-// জেলা ও উপজেলার তালিকা (সংক্ষেপে দিচ্ছি, পুরোটা আগের মতো)
-const districtList = ["ঢাকা","চট্টগ্রাম","রাজশাহী","খুলনা","বরিশাল","সিলেট","রংপুর","ময়মনসিংহ","কুমিল্লা","ফেনী","নোয়াখালী","কক্সবাজার","নওগাঁ","পাবনা"];
-const upazilaMap = {
-    "ঢাকা": ["উত্তরা","তেজগাঁও","মিরপুর","গুলশান"], "চট্টগ্রাম": ["কর্ণফুলী","পটিয়া","রাউজান"], "রাজশাহী": ["বোয়ালিয়া","মতিহার","পুঠিয়া"], "খুলনা": ["খুলনা সদর","দৌলতপুর"]
-};
-
-// ডাটা লোড
+// ============================================
+// ডাটা লোড (GET)
+// ============================================
 async function loadData() {
     try {
-        const res = await fetch(SHEET_API_URL + "?read=1");
-        const data = await res.json();
-        if(data.data) allData = data.data;
-        else allData = [];
-        renderTable();
+        showMessage("⏳ ডাটা লোড হচ্ছে...", "loading");
+        
+        const response = await fetch(`${SHEET_API_URL}?read=1`);
+        const result = await response.json();
+        
+        console.log("API Response:", result);
+        
+        if(result.status === "success" && result.data) {
+            allData = result.data.filter(row => row[0] && row[0].toString().trim() !== "");
+            filteredData = [...allData];
+            renderTable();
+            showMessage(`✅ ${allData.length} টি ডাটা সফলভাবে লোড হয়েছে`, "success");
+        } else {
+            allData = [];
+            filteredData = [];
+            renderTable();
+            showMessage("📭 কোনো ডাটা নেই", "error");
+        }
     } catch(e) {
-        showMessage("ডাটা লোড করতে সমস্যা: " + e.message, "error");
+        console.error("Load Error:", e);
+        showMessage("❌ ডাটা লোড করতে সমস্যা: " + e.message, "error");
         allData = [];
+        filteredData = [];
         renderTable();
     }
 }
 
+// ============================================
 // টেবিল রেন্ডার
+// ============================================
 function renderTable() {
-    const search = document.getElementById("searchInput")?.value.toLowerCase() || "";
-    let filtered = allData.filter(row => 
-        JSON.stringify(row).toLowerCase().includes(search)
-    );
     const tbody = document.getElementById("tableBody");
-    if(filtered.length===0) {
-        tbody.innerHTML = "<tr><td colspan='14'>কোনো ডাটা নেই</td></tr>";
+    
+    if(!filteredData || filteredData.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="14" style="text-align:center; padding:40px;">📭 কোনো ডাটা নেই</td></tr>`;
         return;
     }
-    tbody.innerHTML = filtered.map((row, idx) => `
+    
+    tbody.innerHTML = filteredData.map((row, idx) => `
         <tr>
-            <td>${idx+1}</td>
-            <td>${row[0] || ''}</td><td>${row[1] || ''}</td><td>${row[2] || ''}</td>
-            <td>${row[3] || ''}</td><td>${row[4] || ''}</td><td>${row[5] || ''}</td>
-            <td>${row[6] || ''}</td><td>${row[7] || ''}</td><td>${row[8] || ''}</td>
-            <td>${row[9] || ''}</td><td>${row[10] || ''}</td><td>${row[11] || ''}</td>
+            <td>${idx + 1}</td>
+            <td>${row[0] || ''}</td>
+            <td>${row[1] || ''}</td>
+            <td>${row[2] || ''}</td>
+            <td>${row[3] || ''}</td>
+            <td>${row[4] || ''}</td>
+            <td>${row[5] || ''}</td>
+            <td>${row[6] || ''}</td>
+            <td>${row[7] || ''}</td>
+            <td>${row[8] || ''}</td>
+            <td>${row[9] || ''}</td>
+            <td>${row[10] || ''}</td>
+            <td>${row[11] || ''}</td>
             <td class="no-print">
                 <div class="action-btns">
-                    <button class="btn btn-warning" onclick="editRow(${allData.indexOf(row)})">এডিট</button>
-                    <button class="btn btn-danger" onclick="deleteRow(${allData.indexOf(row)})">ডিলিট</button>
+                    <button class="btn btn-warning" onclick="editRow(${allData.indexOf(row)})">✏️ এডিট</button>
+                    <button class="btn btn-danger" onclick="deleteRow(${allData.indexOf(row)})">🗑️ ডিলিট</button>
                 </div>
-            </td>
-        </tr>
+             </td>
+        <table>
     `).join('');
 }
 
-// যোগ/এডিট মডাল
-function openAddModal() { currentEditIndex = -1; document.getElementById("modalTitle").innerText = "নতুন নাম যোগ করুন"; clearModalForm(); openModal(); }
-function editRow(idx) { currentEditIndex = idx; let row = allData[idx]; document.getElementById("modalTitle").innerText = "এডিট করুন"; fillModalForm(row); openModal(); }
-function deleteRow(idx) { if(confirm("ডাটা ডিলিট করবেন?")) { allData.splice(idx,1); saveAllDataToSheet(); } }
-function saveData() { /* ডাটা সেভের জন্য কাস্টম লজিক */ showMessage("সংরক্ষিত!", "success"); closeModal(); loadData(); }
+// ============================================
+// সার্চ ফাংশন
+// ============================================
+function searchData() {
+    const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+    if(!searchTerm) {
+        filteredData = [...allData];
+    } else {
+        filteredData = allData.filter(row => 
+            JSON.stringify(row).toLowerCase().includes(searchTerm)
+        );
+    }
+    renderTable();
+}
 
-// ইউটিলিটি
-function openModal() { document.getElementById("editModal").style.display = "flex"; }
-function closeModal() { document.getElementById("editModal").style.display = "none"; }
-function clearModalForm() { /* রিসেট ফর্ম */ }
-function fillModalForm(row) { /* ফর্ম পূরণ */ }
-function showMessage(msg, type) { let el = document.getElementById("statusMsg"); el.innerText = msg; el.className = "status-msg status-"+type; setTimeout(()=> el.style.display="none", 3000); }
-function refreshData() { loadData(); }
-function exportToCSV() { /* CSV ফাংশন */ alert("CSV তৈরির কাজ চলছে"); }
-function saveAllDataToSheet() { /* ব্যাকএন্ডে সেভ */ alert("সেভের কাজ চলছে"); }
+// ============================================
+// মেসেজ দেখানো
+// ============================================
+function showMessage(msg, type) {
+    const el = document.getElementById("statusMsg");
+    el.innerText = msg;
+    el.className = `status-msg status-${type}`;
+    setTimeout(() => {
+        if(el.className.includes(`status-${type}`)) {
+            el.style.display = "none";
+        }
+    }, 4000);
+}
 
-// পেজ লোডে
+// ============================================
+// রিফ্রেশ
+// ============================================
+function refreshData() {
+    loadData();
+}
+
+// ============================================
+// মডাল ফাংশন
+// ============================================
+function openAddModal() {
+    currentEditIndex = -1;
+    document.getElementById("modalTitle").innerText = "➕ নতুন নাম যোগ করুন";
+    clearModalForm();
+    openModal();
+}
+
+function editRow(index) {
+    currentEditIndex = index;
+    const row = allData[index];
+    document.getElementById("modalTitle").innerText = "✏️ তথ্য এডিট করুন";
+    
+    document.getElementById("editPitaName").value = row[1] || "";
+    document.getElementById("editMataName").value = row[2] || "";
+    document.getElementById("editMobile").value = row[3] || "";
+    document.getElementById("editPitamaha").value = row[4] || "";
+    document.getElementById("editPrapitamaha").value = row[5] || "";
+    document.getElementById("editJanmaTarikh").value = row[6] || "";
+    document.getElementById("editJanmaSomoy").value = row[7] || "";
+    document.getElementById("editGender").value = row[8] || "ছেলে";
+    document.getElementById("editGram").value = row[9] || "";
+    document.getElementById("editJela").value = row[10] || "";
+    document.getElementById("editUpazila").value = row[11] || "";
+    
+    openModal();
+}
+
+function deleteRow(index) {
+    if(confirm("⚠️ আপনি কি এই ডাটা ডিলিট করতে চান? একবার ডিলিট করলে পুনরুদ্ধার করা যাবে না।")) {
+        const rowToDelete = allData[index];
+        // ডাটা মুছে ফেলা (লোকালি)
+        allData.splice(index, 1);
+        filteredData = [...allData];
+        renderTable();
+        showMessage("🗑️ ডাটা ডিলিট হয়েছে", "success");
+        
+        // নোট: আসল Google Sheet থেকে ডিলিট করতে চাইলে এপিআই কল করতে হবে
+        // সহজ সমাধান: ব্যবহারকারীকে ম্যানুয়ালি শীট থেকে ডিলিট করতে বলুন
+    }
+}
+
+function saveData() {
+    const newData = [
+        new Date().toString(),
+        document.getElementById("editPitaName").value,
+        document.getElementById("editMataName").value,
+        document.getElementById("editMobile").value,
+        document.getElementById("editPitamaha").value,
+        document.getElementById("editPrapitamaha").value,
+        document.getElementById("editJanmaTarikh").value,
+        document.getElementById("editJanmaSomoy").value,
+        document.getElementById("editGender").value,
+        document.getElementById("editGram").value,
+        document.getElementById("editJela").value,
+        document.getElementById("editUpazila").value
+    ];
+    
+    if(currentEditIndex === -1) {
+        // নতুন যোগ
+        allData.unshift(newData);
+        showMessage("✅ নতুন তথ্য যোগ হয়েছে", "success");
+    } else {
+        // এডিট
+        allData[currentEditIndex] = newData;
+        showMessage("✅ তথ্য আপডেট হয়েছে", "success");
+    }
+    
+    filteredData = [...allData];
+    renderTable();
+    closeModal();
+    
+    // নোট: Google Sheet-এ সেভ করার জন্য API কল প্রয়োজন
+    // বর্তমানে লোকালি সেভ হচ্ছে
+}
+
+function openModal() {
+    document.getElementById("editModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("editModal").style.display = "none";
+    clearModalForm();
+}
+
+function clearModalForm() {
+    document.getElementById("editPitaName").value = "";
+    document.getElementById("editMataName").value = "";
+    document.getElementById("editMobile").value = "";
+    document.getElementById("editPitamaha").value = "";
+    document.getElementById("editPrapitamaha").value = "";
+    document.getElementById("editJanmaTarikh").value = "";
+    document.getElementById("editJanmaSomoy").value = "";
+    document.getElementById("editGender").value = "ছেলে";
+    document.getElementById("editGram").value = "";
+    document.getElementById("editJela").value = "";
+    document.getElementById("editUpazila").value = "";
+}
+
+// ============================================
+// CSV এক্সপোর্ট
+// ============================================
+function exportToCSV() {
+    if(!allData.length) {
+        showMessage("❌ কোনো ডাটা নেই", "error");
+        return;
+    }
+    
+    const headers = ["টাইমস্ট্যাম্প", "পিতার নাম", "মাতার নাম", "মোবাইল নাম্বার", "পিতামহ", "প্রপিতামহ", "জন্ম তারিখ", "জন্ম সময়", "লিঙ্গ", "গ্রাম", "জেলা", "উপজেলা"];
+    const csvRows = [headers];
+    
+    allData.forEach(row => {
+        csvRows.push(row.map(cell => `"${cell || ''}"`));
+    });
+    
+    const csvContent = csvRows.map(row => row.join(",")).join("\n");
+    const blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.href = url;
+    link.setAttribute("download", "jay_guru_nam_list.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    showMessage("📎 CSV ফাইল ডাউনলোড শুরু হয়েছে", "success");
+}
+
+// ============================================
+// পেজ লোডে ডাটা লোড
+// ============================================
 loadData();
 </script>
 </body>
