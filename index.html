@@ -2,8 +2,8 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>জয় গুরু - নামকরণ ফর্ম</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>জয় গুরু - নামকরণ ফর্ম | অনুকূল ঠাকুর</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap');
         
@@ -11,125 +11,122 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
         
         body {
-            background: linear-gradient(145deg, #fef9e6 0%, #f0e6d2 100%);
+            background: linear-gradient(145deg, #fef5e8 0%, #f0e6d2 100%);
             font-family: 'Hind Siliguri', 'Segoe UI', 'Noto Sans Bengali', sans-serif;
-            padding: 24px 16px;
+            padding: 16px 12px;
             min-height: 100vh;
             position: relative;
         }
         
-        /* পটভূমিতে হালকা মন্ডলা ডিজাইন */
         body::before {
             content: "🕉";
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 80px;
-            opacity: 0.05;
+            bottom: 15px;
+            right: 15px;
+            font-size: 70px;
+            opacity: 0.03;
             pointer-events: none;
-            font-family: sans-serif;
         }
         
         .container {
-            max-width: 950px;
+            max-width: 750px;
             margin: 0 auto;
             background: #ffffff;
-            border-radius: 48px;
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12), 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 32px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            border: 1px solid rgba(230, 188, 106, 0.3);
-            backdrop-filter: blur(2px);
         }
         
-        .header {
-            background: linear-gradient(115deg, #7a3e1a 0%, #c47a2a 50%, #e09d3a 100%);
-            padding: 32px 24px;
+        .hero-section {
+            background: linear-gradient(115deg, #1a3c2c 0%, #2a5a3a 50%, #3d7a4a 100%);
+            padding: 24px 16px 20px 16px;
             text-align: center;
-            color: #fff6e5;
-            position: relative;
         }
         
-        .header::after {
-            content: "✿";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 28px;
-            color: #f5c06e;
-            background: white;
-            width: 35px;
-            height: 35px;
+        .thakur-image {
+            width: 85px;
+            height: 85px;
             border-radius: 50%;
+            border: 3px solid #ffd966;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+            margin: 0 auto 12px auto;
+            background: radial-gradient(circle, #fff5e0, #f0d89a);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
-        .header h1 {
-            font-size: 2.2rem;
-            letter-spacing: 2px;
+        .thakur-image span {
+            font-size: 44px;
+        }
+        
+        .hero-section h1 {
+            font-size: 1.6rem;
+            color: #ffefc0;
             font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
-        .header h1 span {
+        .hero-section h1 span {
             display: inline-block;
             animation: gentlePulse 2s infinite;
         }
         
         @keyframes gentlePulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); text-shadow: 0 0 8px gold; }
+            50% { transform: scale(1.05); text-shadow: 0 0 8px #ffd700; }
         }
         
-        .header p {
-            font-size: 1rem;
+        .hero-section p {
+            color: #e6d5b3;
+            margin-top: 6px;
+            font-size: 0.85rem;
+        }
+        
+        .verse {
+            background: rgba(255,235,190,0.2);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
             margin-top: 10px;
-            opacity: 0.92;
-            font-weight: 400;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
+            font-style: italic;
+            font-weight: 500;
+            color: #fff0c0;
         }
         
         .form-body {
-            padding: 36px 32px;
+            padding: 24px 20px;
             background: #fffef9;
         }
         
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 18px;
             display: flex;
             flex-direction: column;
         }
         
         label {
             font-weight: 600;
-            color: #4a2c0e;
-            margin-bottom: 8px;
+            color: #2c5a2e;
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            background: linear-gradient(135deg, #fdf8ed, #fffbf0);
-            padding: 6px 14px;
+            gap: 8px;
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, #f3f8ea, #fffbf0);
+            padding: 5px 14px;
             border-radius: 40px;
             width: fit-content;
-            border-left: 4px solid #e6bc6a;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-        }
-        
-        label i {
-            font-style: normal;
-            font-size: 1.2rem;
+            border-left: 3px solid #d4a373;
         }
         
         input, select {
-            padding: 14px 18px;
+            padding: 14px 16px;
             font-size: 1rem;
             font-family: 'Hind Siliguri', monospace;
             border: 1.5px solid #e2d4ba;
@@ -138,29 +135,29 @@
             transition: all 0.25s ease;
             outline: none;
             color: #3b2a1a;
-            font-weight: 500;
-            letter-spacing: 0.3px;
+            -webkit-appearance: none;
+            appearance: none;
         }
         
         input:focus, select:focus {
-            border-color: #d6962c;
-            box-shadow: 0 0 0 4px rgba(214, 150, 44, 0.15);
+            border-color: #d48c2c;
+            box-shadow: 0 0 0 3px rgba(212, 140, 44, 0.15);
             background: #fffdf8;
         }
         
         input::placeholder {
             color: #bbaa84;
             font-weight: 400;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         .gender-group {
             display: flex;
-            gap: 32px;
+            gap: 24px;
             align-items: center;
             flex-wrap: wrap;
             background: #fefaf0;
-            padding: 12px 20px;
+            padding: 10px 18px;
             border-radius: 50px;
             margin-top: 5px;
         }
@@ -168,168 +165,136 @@
         .gender-group label {
             border-left: none;
             background: none;
-            padding: 0;
+            padding: 6px 0;
             margin: 0;
             gap: 8px;
             font-weight: 500;
             cursor: pointer;
-            transition: 0.2s;
-        }
-        
-        .gender-group label:hover {
-            color: #c47a2a;
-            transform: scale(1.02);
         }
         
         .gender-group input {
             width: 18px;
             height: 18px;
-            accent-color: #c47a2a;
+            accent-color: #2a7a3a;
             margin: 0;
-            padding: 0;
         }
         
         .row-2col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 14px;
         }
         
         .submit-btn {
-            background: linear-gradient(95deg, #7a461f, #c47a2a);
+            background: linear-gradient(95deg, #2a5a3a, #3d8a4a);
             color: #fff6e5;
             border: none;
             padding: 16px 20px;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             border-radius: 60px;
             cursor: pointer;
             width: 100%;
-            margin-top: 28px;
-            transition: all 0.25s;
+            margin-top: 24px;
+            transition: all 0.2s;
             font-family: 'Hind Siliguri', sans-serif;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 12px rgba(122, 62, 26, 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            box-shadow: 0 4px 12px rgba(42, 90, 58, 0.3);
         }
         
-        .submit-btn:hover {
-            background: linear-gradient(95deg, #9b5a2a, #e08f2e);
-            transform: scale(0.98);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        .submit-btn:active {
+            transform: scale(0.97);
         }
         
         .note {
-            background: linear-gradient(115deg, #fff1dd, #feeac6);
-            padding: 16px;
-            border-radius: 48px;
+            background: #f6f2e0;
+            padding: 14px;
+            border-radius: 32px;
             text-align: center;
-            margin-top: 25px;
-            color: #6b4c24;
-            font-size: 0.9rem;
-            border: 1px solid #ffdfaa;
+            margin-top: 22px;
+            color: #4a6a2a;
+            font-size: 0.85rem;
+            border: 1px solid #e8dbbd;
             font-weight: 500;
-            backdrop-filter: blur(4px);
+            line-height: 1.5;
+        }
+        
+        .prayer {
+            background: #e8f0e0;
+            padding: 12px;
+            border-radius: 28px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #2c5a2e;
+            border-left: 4px solid #d4a373;
+            font-style: italic;
         }
         
         #message {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 18px;
             padding: 12px;
-            border-radius: 60px;
-            font-weight: bold;
-            transition: 0.2s;
-            font-size: 0.95rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
         }
         
-        .error {
-            background: #ffe6e5;
-            color: #c23d2e;
-            border-left: 6px solid #c23d2e;
+        .error { background: #ffe6e5; color: #c23d2e; border-left: 5px solid #c23d2e; }
+        .success { background: #e0f5e5; color: #2d6a4f; border-left: 5px solid #2d6a4f; }
+        .loading { background: #fff0d0; color: #c97e2c; border-left: 5px solid #c97e2c; }
+        
+        small { font-size: 0.7rem; color: #8a7a5a; margin-left: 12px; margin-top: 4px; }
+        
+        @media (max-width: 560px) {
+            body { padding: 12px 10px; }
+            .row-2col { grid-template-columns: 1fr; gap: 12px; }
+            .form-body { padding: 20px 16px; }
+            .hero-section h1 { font-size: 1.4rem; }
+            .thakur-image { width: 70px; height: 70px; }
+            .thakur-image span { font-size: 36px; }
+            .gender-group { gap: 18px; padding: 8px 14px; }
+            .submit-btn { padding: 14px 16px; font-size: 1.1rem; }
         }
         
-        .success {
-            background: #e0f5e5;
-            color: #2d6a4f;
-            border-left: 6px solid #2d6a4f;
-        }
-        
-        .loading {
-            background: #fff0d0;
-            color: #c97e2c;
-            border-left: 6px solid #c97e2c;
-        }
-        
-        @media (max-width: 640px) {
-            .row-2col {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .form-body {
-                padding: 22px 18px;
-            }
-            .header h1 {
-                font-size: 1.7rem;
-            }
-            .gender-group {
-                gap: 18px;
-                padding: 10px 12px;
-            }
-            label {
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* চমৎকার স্ক্রোলবার */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f0e0c0;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #c47a2a;
-            border-radius: 10px;
+        @media (max-width: 380px) {
+            .gender-group { gap: 12px; flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
+    <div class="hero-section">
+        <div class="thakur-image">
+            <span>🙏</span>
+        </div>
         <h1>🕉 <span>জয় গুরু</span> 🕉</h1>
-        <p>সন্তানের নামকরণের পবিত্র ফর্ম | সকল ডাটা সংরক্ষিত হবে</p>
+        <p>শ্রীশ্রী অনুকূল ঠাকুরের পবিত্র আশীর্বাদে</p>
+        <div class="verse">“সত্য, শিব, সুন্দর - সবার মঙ্গল করো”</div>
     </div>
     <div class="form-body">
         <form id="namkaranForm">
-            <!-- পিতা ও মাতার তথ্য একসাথে -->
             <div class="row-2col">
                 <div class="form-group">
                     <label>👨 পিতার নাম</label>
                     <input type="text" id="pita_nam" placeholder="পূর্ণ নাম" required>
                 </div>
                 <div class="form-group">
-                    <label>📞 পিতার মোবাইল</label>
-                    <input type="tel" id="pita_mobile" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" required>
-                </div>
-            </div>
-            
-            <div class="row-2col">
-                <div class="form-group">
                     <label>👩 মাতার নাম</label>
                     <input type="text" id="mata_nam" placeholder="পূর্ণ নাম" required>
                 </div>
-                <div class="form-group">
-                    <label>📞 মাতার মোবাইল</label>
-                    <input type="tel" id="mata_mobile" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" required>
-                </div>
             </div>
             
-            <!-- পিতামহ ও প্রপিতামহ -->
+            <div class="form-group">
+                <label>📞 মোবাইল নাম্বার</label>
+                <input type="tel" id="mobile" placeholder="01XXXXXXXXX" pattern="[0-9]{11}" inputmode="numeric" required>
+                <small>যেকোনো একটি অভিভাবকের মোবাইল নাম্বার দিন</small>
+            </div>
+            
             <div class="row-2col">
                 <div class="form-group">
                     <label>🧓 পিতামহ (দাদা)</label>
@@ -341,7 +306,6 @@
                 </div>
             </div>
             
-            <!-- জন্ম তারিখ ও সময় -->
             <div class="row-2col">
                 <div class="form-group">
                     <label>📅 জন্ম তারিখ</label>
@@ -353,7 +317,6 @@
                 </div>
             </div>
             
-            <!-- সন্তানের লিঙ্গ -->
             <div class="form-group">
                 <label>⚥ সন্তানের লিঙ্গ</label>
                 <div class="gender-group">
@@ -363,13 +326,11 @@
                 </div>
             </div>
             
-            <!-- গ্রাম -->
             <div class="form-group">
                 <label>🏠 গ্রাম / মহল্লা</label>
                 <input type="text" id="gram" placeholder="গ্রাম, রাস্তা, বাড়ির বিবরণ" required>
             </div>
             
-            <!-- জেলা / উপজেলা -->
             <div class="row-2col">
                 <div class="form-group">
                     <label>🗺️ জেলা</label>
@@ -378,7 +339,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>📍 উপজেলা / থানা</label>
+                    <label>📍 উপজেলা</label>
                     <select id="upazila" required disabled>
                         <option value="">প্রথমে জেলা বাছুন</option>
                     </select>
@@ -386,10 +347,15 @@
             </div>
             
             <div class="note">
-                ✿ জয় গুরু মন্ত্রে বিশ্বাস রেখে সন্তানের জন্য কল্যাণময় নাম নির্বাচন করুন ✿
+                ✿ অনুকূল ঠাকুরের চরণে সন্তানের সুন্দর ও কল্যাণময় নামের জন্য প্রার্থনা ✿
             </div>
+            
+            <div class="prayer">
+                🙏 “সত্য, শিব, সুন্দর - সবার মঙ্গল করো” 🙏
+            </div>
+            
             <button type="submit" class="submit-btn">
-                <span>🔱</span> নামকরণ ফর্ম জমা দিন <span>🔱</span>
+                <span>🔱</span> নামকরণ জমা দিন <span>🔱</span>
             </button>
         </form>
         <div id="message"></div>
@@ -397,28 +363,96 @@
 </div>
 
 <script>
-// ===============================
-// জেলা ও উপজেলার ডাটা (আপডেটেড)
-// ===============================
+// ============================================
+// বাংলাদেশের সকল ৬৪ জেলার উপজেলা সহ সম্পূর্ণ তালিকা
+// ============================================
 const districtToUpazila = {
-    "ঢাকা": ["উত্তরা", "তেজগাঁও", "মিরপুর", "গুলশান", "মোহাম্মদপুর", "ঢাকা সদর", "কাফরুল", "বাড্ডা", "মতিঝিল", "পল্টন"],
-    "চট্টগ্রাম": ["কর্ণফুলী", "পটিয়া", "রাউজান", "সীতাকুণ্ড", "হাটহাজারী", "বন্দর", "চট্টগ্রাম সদর", "আনোয়ারা", "মিরসরাই", "রাঙ্গুনিয়া"],
-    "রাজশাহী": ["বোয়ালিয়া", "মতিহার", "পুঠিয়া", "চারঘাট", "বাঘা", "রাজশাহী সদর", "গোদাগাড়ী", "তানোর"],
-    "খুলনা": ["খুলনা সদর", "দৌলতপুর", "দিঘলিয়া", "পাইকগাছা", "রূপসা", "তেরখাদা", "বটিয়াঘাটা", "ফুলতলা"],
-    "বরিশাল": ["বরিশাল সদর", "বাকেরগঞ্জ", "বানারীপাড়া", "উজিরপুর", "মেহেন্দিগঞ্জ", "আগৈলঝাড়া", "বাবুগঞ্জ"],
-    "সিলেট": ["সিলেট সদর", "দক্ষিণ সুরমা", "বিশ্বনাথ", "গোলাপগঞ্জ", "জৈন্তাপুর", "কানাইঘাট", "বিয়ানীবাজার"],
-    "রংপুর": ["রংপুর সদর", "বদরগঞ্জ", "পীরগঞ্জ", "কাউনিয়া", "মিঠাপুকুর", "তারাগঞ্জ", "পীরগাছা"],
-    "ময়মনসিংহ": ["ময়মনসিংহ সদর", "ত্রিশাল", "গৌরীপুর", "ঈশ্বরগঞ্জ", "মুক্তাগাছা", "ফুলবাড়িয়া", "হালুয়াঘাট", "নান্দাইল"],
-    "কুমিল্লা": ["কুমিল্লা সদর", "চান্দিনা", "বরুড়া", "দাউদকান্দি", "লাকসাম", "মুরাদনগর", "দেবিদ্বার"],
+    // ঢাকা বিভাগ
+    "ঢাকা": ["উত্তরা", "তেজগাঁও", "মিরপুর", "গুলশান", "মোহাম্মদপুর", "ঢাকা সদর", "কাফরুল", "বাড্ডা", "মতিঝিল", "পল্টন", "রামপুরা", "খিলক্ষেত", "শাহবাগ", "সবুজবাগ"],
+    "গাজীপুর": ["গাজীপুর সদর", "কালিয়াকৈর", "কাপাসিয়া", "শ্রীপুর", "কালীগঞ্জ", "টঙ্গী"],
+    "নারায়ণগঞ্জ": ["নারায়ণগঞ্জ সদর", "বন্দর", "সোনারগাঁও", "রূপগঞ্জ", "আড়াইহাজার", "ফতুল্লা"],
+    "মানিকগঞ্জ": ["মানিকগঞ্জ সদর", "শিবালয়", "সাটুরিয়া", "সিংগাইর", "হরিরামপুর", "ঘিওর", "দৌলতপুর"],
+    "মুন্সীগঞ্জ": ["মুন্সীগঞ্জ সদর", "টংগিবাড়ী", "লৌহজং", "শ্রীনগর", "সিরাজদিখান", "গজারিয়া"],
+    "টাঙ্গাইল": ["টাঙ্গাইল সদর", "মধুপুর", "ধনবাড়ী", "মির্জাপুর", "নাগরপুর", "বাসাইল", "গোপালপুর", "কালিহাতী", "ভূঞাপুর", "দেলদুয়ার", "সখিপুর"],
+    "কিশোরগঞ্জ": ["কিশোরগঞ্জ সদর", "অষ্টগ্রাম", "ইটনা", "করিমগঞ্জ", "কটিয়াদী", "তাড়াইল", "পাকুন্দিয়া", "বাজিতপুর", "ভৈরব", "মিঠামইন", "হোসেনপুর", "নিকলী", "কুলিয়ারচর"],
+    "ফরিদপুর": ["ফরিদপুর সদর", "আলফাডাঙ্গা", "চরভদ্রাসন", "সদরপুর", "নগরকান্দা", "বোয়ালমারী", "মধুখালী", "ভাঙ্গা", "সালথা"],
+    "রাজবাড়ী": ["রাজবাড়ী সদর", "পাংশা", "বালিয়াকান্দি", "কালুখালী", "গোয়ালন্দ"],
+    "গোপালগঞ্জ": ["গোপালগঞ্জ সদর", "মুকসুদপুর", "কাশিয়ানী", "টুঙ্গিপাড়া", "কোটালীপাড়া"],
+    "মাদারীপুর": ["মাদারীপুর সদর", "শিবচর", "কালকিনি", "রাজৈর"],
+    "শরীয়তপুর": ["শরীয়তপুর সদর", "ভেদরগঞ্জ", "ডামুড্যা", "গোসাইরহাট", "নড়িয়া", "জাজিরা"],
+    
+    // চট্টগ্রাম বিভাগ
+    "চট্টগ্রাম": ["কর্ণফুলী", "পটিয়া", "রাউজান", "সীতাকুণ্ড", "হাটহাজারী", "বন্দর", "চট্টগ্রাম সদর", "বাঁশখালী", "আনোয়ারা", "বোয়ালখালী", "চন্দনাইশ", "সাতকানিয়া", "লোহাগাড়া", "মিরসরাই", "ফটিকছড়ি", "সন্দ্বীপ", "রাঙ্গুনিয়া"],
+    "কুমিল্লা": ["কুমিল্লা সদর", "চান্দিনা", "বরুড়া", "দাউদকান্দি", "লাকসাম", "মুরাদনগর", "দেবিদ্বার", "ব্রাহ্মণপাড়া", "মনোহরগঞ্জ", "তিতাস", "নাঙ্গলকোট", "মেঘনা", "হোমনা"],
     "ফেনী": ["ফেনী সদর", "ছাগলনাইয়া", "পরশুরাম", "দাগনভূঞা", "সোনাগাজী"],
-    "নোয়াখালী": ["নোয়াখালী সদর", "সুবর্ণচর", "কোম্পানীগঞ্জ", "বেগমগঞ্জ", "সেনবাগ", "চাটখিল", "হাতিয়া"],
-    "কক্সবাজার": ["কক্সবাজার সদর", "চকোরিয়া", "কুতুবদিয়া", "ঈদগাঁও", "মহেশখালী", "রামু", "উখিয়া", "টেকনাফ"]
+    "নোয়াখালী": ["নোয়াখালী সদর", "সুবর্ণচর", "কোম্পানীগঞ্জ", "বেগমগঞ্জ", "সেনবাগ", "চাটখিল", "সোনাইমুড়ি", "হাতিয়া", "কবিরহাট"],
+    "লক্ষ্মীপুর": ["লক্ষ্মীপুর সদর", "রামগঞ্জ", "রামগতি", "রায়পুর", "কমলনগর"],
+    "ব্রাহ্মণবাড়িয়া": ["ব্রাহ্মণবাড়িয়া সদর", "আশুগঞ্জ", "নাসিরনগর", "নবীনগর", "সরাইল", "কসবা", "আখাউড়া", "বাঞ্ছারামপুর", "বিজয়নগর"],
+    "চাঁদপুর": ["চাঁদপুর সদর", "মতলব উত্তর", "মতলব দক্ষিণ", "হাজীগঞ্জ", "ফরিদগঞ্জ", "কচুয়া", "শাহরাস্তি"],
+    "কক্সবাজার": ["কক্সবাজার সদর", "চকোরিয়া", "কুতুবদিয়া", "ঈদগাঁও", "মহেশখালী", "রামু", "উখিয়া", "টেকনাফ", "পেকুয়া"],
+    "রাঙ্গামাটি": ["রাঙ্গামাটি সদর", "বরকল", "বিলাইছড়ি", "জুরাছড়ি", "কাপ্তাই", "কাউখালী", "লংগদু", "নানিয়ারচর", "রাজস্থলী", "বাঘাইছড়ি"],
+    "খাগড়াছড়ি": ["খাগড়াছড়ি সদর", "দীঘিনালা", "পানছড়ি", "লক্ষ্মীছড়ি", "মহালছড়ি", "মাটিরাঙ্গা", "গুইমারা", "রামগড়", "মানিকছড়ি"],
+    "বান্দরবান": ["বান্দরবান সদর", "নাইক্ষ্যংছড়ি", "রুমা", "থানচি", "লামা", "আলীকদম", "রোয়াংছড়ি"],
+    
+    // রাজশাহী বিভাগ
+    "রাজশাহী": ["বোয়ালিয়া", "মতিহার", "পুঠিয়া", "চারঘাট", "বাঘা", "রাজশাহী সদর", "গোদাগাড়ী", "তানোর", "মোহনপুর", "দুর্গাপুর", "বাগমারা"],
+    "নওগাঁ": ["নওগাঁ সদর", "রাণীনগর", "পত্নীতলা", "ধামইরহাট", "মহাদেবপুর", "বদলগাছি", "মান্দা", "নিয়ামতপুর", "আত্রাই", "সাপাহার", "পোরশা"],
+    "নাটোর": ["নাটোর সদর", "বড়াইগ্রাম", "বাগাতিপাড়া", "লালপুর", "সিংড়া", "গুরুদাসপুর", "নলডাঙ্গা"],
+    "চাঁপাইনবাবগঞ্জ": ["চাঁপাইনবাবগঞ্জ সদর", "গোমস্তাপুর", "নাচোল", "ভোলাহাট", "শিবগঞ্জ"],
+    "পাবনা": ["পাবনা সদর", "বেড়া", "চাটমোহর", "ভাঙ্গুরা", "ফরিদপুর", "ঈশ্বরদী", "সাঁথিয়া", "সুজানগর", "আটঘরিয়া", "আমিনপুর"],
+    "সিরাজগঞ্জ": ["সিরাজগঞ্জ সদর", "কাজীপুর", "রায়গঞ্জ", "উল্লাপাড়া", "বেলকুচি", "চৌহালী", "কামারখন্দ", "শাহজাদপুর", "তাড়াশ"],
+    "জয়পুরহাট": ["জয়পুরহাট সদর", "ক্ষেতলাল", "পাঁচবিবি", "আক্কেলপুর", "কালাই"],
+    "বগুড়া": ["বগুড়া সদর", "শেরপুর", "ধুনট", "সারিয়াকান্দি", "গাবতলী", "শাজাহানপুর", "দুপচাঁচিয়া", "আদমদিঘী", "কাহালু", "নন্দীগ্রাম", "সোনাতলা"],
+    
+    // খুলনা বিভাগ
+    "খুলনা": ["খুলনা সদর", "দৌলতপুর", "দিঘলিয়া", "পাইকগাছা", "রূপসা", "তেরখাদা", "বটিয়াঘাটা", "ফুলতলা", "ডুমুরিয়া", "কয়রা"],
+    "যশোর": ["যশোর সদর", "অভয়নগর", "বাঘারপাড়া", "চৌগাছা", "ঝিকরগাছা", "কেশবপুর", "মনিরামপুর", "শার্শা"],
+    "সাতক্ষীরা": ["সাতক্ষীরা সদর", "আশাশুনি", "কলারোয়া", "তালা", "দেবহাটা", "শ্যামনগর", "কালীগঞ্জ", "পাটকেলঘাটা"],
+    "মাগুরা": ["মাগুরা সদর", "মোহাম্মদপুর", "শালিখা", "শ্রীপুর"],
+    "নড়াইল": ["নড়াইল সদর", "লোহাগড়া", "কালিয়া"],
+    "ঝিনাইদহ": ["ঝিনাইদহ সদর", "কালীগঞ্জ", "কোটচাঁদপুর", "শৈলকুপা", "হরিণাকুন্ডু", "মহেশপুর"],
+    "কুষ্টিয়া": ["কুষ্টিয়া সদর", "কুমারখালী", "খোকসা", "মিরপুর", "দৌলতপুর", "ভেড়ামারা"],
+    "চুয়াডাঙ্গা": ["চুয়াডাঙ্গা সদর", "আলমডাঙ্গা", "দামুড়হুদা", "জীবননগর"],
+    "মেহেরপুর": ["মেহেরপুর সদর", "মুজিবনগর", "গাংনী"],
+    
+    // বরিশাল বিভাগ
+    "বরিশাল": ["বরিশাল সদর", "বাকেরগঞ্জ", "বানারীপাড়া", "উজিরপুর", "মেহেন্দিগঞ্জ", "আগৈলঝাড়া", "বাবুগঞ্জ", "মুলাদী", "হিজলা", "গৌরনদী"],
+    "পিরোজপুর": ["পিরোজপুর সদর", "নাজিরপুর", "নেছারাবাদ", "কাউখালী", "ভাণ্ডারিয়া", "মঠবাড়িয়া", "ইন্দুরকানী"],
+    "ঝালকাঠি": ["ঝালকাঠি সদর", "কাঁঠালিয়া", "নলছিটি", "রাজাপুর"],
+    "পটুয়াখালী": ["পটুয়াখালী সদর", "কলাপাড়া", "বাউফল", "দুমকি", "দশমিনা", "গলাচিপা", "মির্জাগঞ্জ", "রাঙ্গাবালী"],
+    "বরগুনা": ["বরগুনা সদর", "আমতলী", "তালতলী", "বামনা", "পাথরঘাটা", "বেতাগী"],
+    "ভোলা": ["ভোলা সদর", "বোরহানউদ্দিন", "চরফ্যাশন", "দৌলতখান", "লালমোহন", "মনপুরা", "তজুমদ্দিন"],
+    
+    // সিলেট বিভাগ
+    "সিলেট": ["সিলেট সদর", "দক্ষিণ সুরমা", "বিশ্বনাথ", "গোলাপগঞ্জ", "জৈন্তাপুর", "কানাইঘাট", "বিয়ানীবাজার", "ফেঞ্চুগঞ্জ", "বালাগঞ্জ", "কোম্পানীগঞ্জ", "জকিগঞ্জ", "গোয়াইনঘাট"],
+    "মৌলভীবাজার": ["মৌলভীবাজার সদর", "কমলগঞ্জ", "কুলাউড়া", "বড়লেখা", "জুড়ী", "শ্রীমঙ্গল", "রাজনগর"],
+    "হবিগঞ্জ": ["হবিগঞ্জ সদর", "বাহুবল", "আজমিরীগঞ্জ", "বানিয়াচং", "লাখাই", "মাধবপুর", "নবীগঞ্জ", "চুনারুঘাট", "শায়েস্তাগঞ্জ"],
+    "সুনামগঞ্জ": ["সুনামগঞ্জ সদর", "দক্ষিণ সুনামগঞ্জ", "বিশ্বম্ভরপুর", "ছাতক", "দিরাই", "ধর্মপাশা", "জগন্নাথপুর", "শাল্লা", "তাহিরপুর", "মধ্যনগর", "দোয়ারাবাজার"],
+    
+    // রংপুর বিভাগ
+    "রংপুর": ["রংপুর সদর", "বদরগঞ্জ", "পীরগঞ্জ", "কাউনিয়া", "মিঠাপুকুর", "তারাগঞ্জ", "পীরগাছা", "গংগাচড়া"],
+    "দিনাজপুর": ["দিনাজপুর সদর", "বিরামপুর", "বীরগঞ্জ", "বোচাগঞ্জ", "চিরিরবন্দর", "ফুলবাড়ী", "ঘোড়াঘাট", "হাকিমপুর", "খানসামা", "নবাবগঞ্জ", "পার্বতীপুর"],
+    "ঠাকুরগাঁও": ["ঠাকুরগাঁও সদর", "বালিয়াডাঙ্গী", "হরিপুর", "পীরগঞ্জ", "রাণীশংকৈল"],
+    "পঞ্চগড়": ["পঞ্চগড় সদর", "আটোয়ারী", "বোদা", "দেবীগঞ্জ", "তেঁতুলিয়া"],
+    "নীলফামারী": ["নীলফামারী সদর", "ডোমার", "জলঢাকা", "কিশোরগঞ্জ", "সৈয়দপুর", "ডিমলা"],
+    "লালমনিরহাট": ["লালমনিরহাট সদর", "আদিতমারী", "কালীগঞ্জ", "হাতীবান্ধা", "পাটগ্রাম"],
+    "কুড়িগ্রাম": ["কুড়িগ্রাম সদর", "ভুরুঙ্গামারী", "চর রাজিবপুর", "চিলমারী", "রৌমারী", "রাজারহাট", "উলিপুর", "ফুলবাড়ী", "নাগেশ্বরী"],
+    "গাইবান্ধা": ["গাইবান্ধা সদর", "গোবিন্দগঞ্জ", "পলাশবাড়ী", "সাদুল্লাপুর", "সাঘাটা", "সুন্দরগঞ্জ", "ফুলছড়ি"],
+    
+    // ময়মনসিংহ বিভাগ
+    "ময়মনসিংহ": ["ময়মনসিংহ সদর", "ত্রিশাল", "গৌরীপুর", "ঈশ্বরগঞ্জ", "মুক্তাগাছা", "ফুলবাড়িয়া", "হালুয়াঘাট", "ধোবাউড়া", "তারাকান্দা", "নান্দাইল", "ভালুকা", "গফরগাঁও"],
+    "জামালপুর": ["জামালপুর সদর", "মেলান্দহ", "ইসলামপুর", "দেওয়ানগঞ্জ", "বকশীগঞ্জ", "মাদারগঞ্জ", "সরিষাবাড়ী"],
+    "শেরপুর": ["শেরপুর সদর", "নালিতাবাড়ী", "ঝিনাইগাতী", "নকলা", "শ্রীবরদী"],
+    "নেত্রকোণা": ["নেত্রকোণা সদর", "বারহাট্টা", "দুর্গাপুর", "কলমাকান্দা", "মদন", "মোহনগঞ্জ", "কেন্দুয়া", "আটপাড়া", "পূর্বধলা", "খালিয়াজুড়ি"]
 };
 
+// জেলা ড্রপডাউন পপুলেট
 const jelaSelect = document.getElementById("jela");
 const upazilaSelect = document.getElementById("upazila");
 
-for (let jela in districtToUpazila) {
+// জেলাগুলো সাজানো আকারে যোগ করা
+const sortedDistricts = Object.keys(districtToUpazila).sort();
+for (let jela of sortedDistricts) {
     let option = new Option(jela, jela);
     jelaSelect.appendChild(option);
 }
@@ -428,7 +462,8 @@ jelaSelect.addEventListener("change", function() {
     upazilaSelect.innerHTML = '<option value="">-- উপজেলা নির্বাচন করুন --</option>';
     if (selectedJela && districtToUpazila[selectedJela]) {
         upazilaSelect.disabled = false;
-        districtToUpazila[selectedJela].forEach(up => {
+        let sortedUpazilas = [...districtToUpazila[selectedJela]].sort();
+        sortedUpazilas.forEach(up => {
             upazilaSelect.appendChild(new Option(up, up));
         });
     } else {
@@ -436,7 +471,7 @@ jelaSelect.addEventListener("change", function() {
     }
 });
 
-// ----- Web App URL (আপনার URL বসান) -----
+// Google Apps Script URL
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwkrxvWNqHTo9iRs69QdEWbNFijl1DyN-K_BxQfbYGIDJ6f8JG4xjuGS-YoGUCcT_bZ/exec";
 
 const form = document.getElementById("namkaranForm");
@@ -452,9 +487,8 @@ form.addEventListener("submit", async function(e) {
     
     const formData = {
         pita_nam: document.getElementById("pita_nam").value.trim(),
-        pita_mobile: document.getElementById("pita_mobile").value.trim(),
         mata_nam: document.getElementById("mata_nam").value.trim(),
-        mata_mobile: document.getElementById("mata_mobile").value.trim(),
+        mobile: document.getElementById("mobile").value.trim(),
         pitamaha: document.getElementById("pitamaha").value.trim(),
         prapitamaha: document.getElementById("prapitamaha").value.trim(),
         janma_tarikh: document.getElementById("janma_tarikh").value,
@@ -467,13 +501,14 @@ form.addEventListener("submit", async function(e) {
     
     for (let key in formData) {
         if (!formData[key]) {
-            msgDiv.innerHTML = "⚠️ সব তথ্য পূরণ করুন! (জেলা + উপজেলা অবশ্যই নির্বাচন করুন)";
+            msgDiv.innerHTML = "⚠️ সব তথ্য পূরণ করুন! (জেলা ও উপজেলা নির্বাচন করুন)";
             msgDiv.className = "error";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
     }
     
-    msgDiv.innerHTML = "⏳ জমা হচ্ছে, দয়া করে অপেক্ষা করুন...";
+    msgDiv.innerHTML = "⏳ জমা হচ্ছে... 🙏";
     msgDiv.className = "loading";
     
     try {
@@ -484,7 +519,7 @@ form.addEventListener("submit", async function(e) {
             body: JSON.stringify(formData)
         });
         
-        msgDiv.innerHTML = "✅ জয় গুরু! আপনার তথ্য সফলভাবে গুগল শীটে জমা হয়েছে।";
+        msgDiv.innerHTML = "✅ জয় গুরু! তথ্য সেভ হয়েছে। অনুকূল ঠাকুরের আশীর্বাদ রইলো।";
         msgDiv.className = "success";
         
         form.reset();
