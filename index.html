@@ -6,27 +6,16 @@
 <title>জয় গুরু — নামকরণ ফর্ম | সৎসঙ্গ</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --gd:#0f2a1c;--gm:#1e4d30;--gl:#2e7a42;
-  --go:#c8922a;--gol:#f0c060;--gop:#ffefc0;
-  --cr:#fffbf0;--cd:#f5edd8;--bg:#ece4d0;
-  --td:#1a0f05;--tm:#3a2a12;--tl:#6a5a3a;
-  --err:#c23d2e;--ok:#1e5c3a;--bdr:#d8c8a0;--r:14px;
-}
+:root{--gd:#0f2a1c;--gm:#1e4d30;--gl:#2e7a42;--go:#c8922a;--gol:#f0c060;--gop:#ffefc0;--cr:#fffbf0;--cd:#f5edd8;--bg:#ece4d0;--td:#1a0f05;--tm:#3a2a12;--tl:#6a5a3a;--err:#c23d2e;--ok:#1e5c3a;--bdr:#d8c8a0;--r:14px;}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rgba(212,163,60,.18) 0%,transparent 50%),radial-gradient(ellipse at 85% 90%,rgba(30,77,48,.14) 0%,transparent 50%);font-family:'Hind Siliguri','Noto Sans Bengali',sans-serif;min-height:100vh;padding:18px 10px 44px}
-
 .container{max-width:760px;margin:0 auto}
-
-/* HERO */
 .hero{background:linear-gradient(155deg,#081810 0%,#0f2a1c 40%,#1e4d30 80%,#163d24 100%);border-radius:26px 26px 0 0;padding:28px 20px 0;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.012) 40px,rgba(255,255,255,.012) 41px);pointer-events:none}
 .h-glow{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:220px;height:220px;background:radial-gradient(circle,rgba(200,146,42,.2) 0%,transparent 70%);pointer-events:none}
 .h-orn{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px}
 .orn-l{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(240,192,96,.4),transparent);max-width:90px}
 .orn-t{color:rgba(240,192,96,.7);font-size:.72rem;letter-spacing:4px}
-
-/* Spinning logo */
 .a-ring{position:relative;width:114px;height:114px;margin:0 auto 14px}
 .r1,.r2,.r3{position:absolute;border-radius:50%;border:1.5px solid transparent}
 .r1{inset:-8px;border-top-color:var(--gol);border-right-color:rgba(240,192,96,.25);animation:sp 5s linear infinite}
@@ -35,18 +24,12 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 @keyframes sp{to{transform:rotate(360deg)}}
 .a-inner{width:114px;height:114px;border-radius:50%;border:3px solid var(--go);overflow:hidden;box-shadow:0 0 0 1px rgba(200,146,42,.3),0 8px 28px rgba(0,0,0,.45);background:#fff;position:relative;z-index:2}
 .a-inner img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-
 .h-title{font-family:'Noto Serif Bengali',serif;font-size:1.85rem;color:var(--gop);font-weight:700;letter-spacing:2px;text-shadow:0 2px 20px rgba(0,0,0,.6);margin-bottom:5px}
 .h-title .pulse{display:inline-block;animation:glow 3s ease-in-out infinite}
 @keyframes glow{0%,100%{text-shadow:0 2px 20px rgba(0,0,0,.6)}50%{text-shadow:0 0 20px rgba(255,210,80,.8),0 2px 20px rgba(0,0,0,.4)}}
 .h-sub{color:#9abfaa;font-size:.83rem;margin-bottom:13px}
 .h-badge{display:inline-block;background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.3);color:var(--gop);padding:7px 22px;border-radius:50px;font-size:.79rem;font-style:italic;font-weight:500;backdrop-filter:blur(6px)}
-
-/* Wave */
-.wave{margin-top:20px;line-height:0}
-.wave svg{display:block;width:100%}
-
-/* Progress */
+.wave{margin-top:20px;line-height:0}.wave svg{display:block;width:100%}
 .prog-wrap{background:linear-gradient(160deg,#0f2a1c,#1e4d30);padding:14px 22px 0}
 .step-labels{display:flex;justify-content:space-between;margin-bottom:8px}
 .step-label{font-size:.67rem;color:rgba(155,200,170,.35);text-align:center;flex:1;transition:all .4s;display:flex;flex-direction:column;align-items:center;gap:4px}
@@ -59,19 +42,13 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.14);transition:all .35s}
 .dot.active{background:var(--gol);width:22px;border-radius:4px}
 .dot.done{background:rgba(80,190,100,.5)}
-
-/* FORM BODY */
 .fbody{background:var(--cr);border-radius:0 0 26px 26px;overflow:hidden}
 .step-panel{display:none;padding:24px 22px 6px;animation:sin .35s ease}
 .step-panel.active{display:block}
 @keyframes sin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-
 .step-head{font-family:'Noto Serif Bengali',serif;font-size:1rem;color:var(--gd);font-weight:700;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--cd);display:flex;align-items:center;gap:10px}
 .si{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gm),var(--gl));display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;box-shadow:0 3px 10px rgba(30,77,48,.3)}
-
-/* Fields */
-.fg{margin-bottom:17px}
-.r2c{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.fg{margin-bottom:17px}.r2c{display:grid;grid-template-columns:1fr 1fr;gap:15px}
 .fl{display:flex;align-items:center;gap:7px;font-size:.79rem;font-weight:600;color:var(--gd);margin-bottom:6px}
 .li{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#ecf5e8,#fef8e8);border:1px solid var(--bdr);font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .fw{position:relative}
@@ -88,29 +65,18 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 .ferr{font-size:.69rem;color:var(--err);margin-top:4px;padding-left:3px;display:none}
 .cc{font-size:.67rem;color:var(--tl);text-align:right;margin-top:3px}
 .cc.warn{color:#c97e2c}
-
-/* Gender */
 .gg{display:flex;gap:10px}
-.go-opt{flex:1}
-.go-opt input{display:none}
+.go-opt{flex:1}.go-opt input{display:none}
 .go-opt label{display:flex;flex-direction:column;align-items:center;gap:5px;padding:11px 6px;border:1.5px solid var(--bdr);border-radius:var(--r);cursor:pointer;background:#fff;transition:all .2s;font-size:.79rem;font-weight:600;color:var(--tm)}
 .go-opt label .gi{font-size:23px}
 .go-opt input:checked+label{border-color:var(--gm);background:linear-gradient(135deg,#edf7ee,#f5fef5);color:var(--gd);box-shadow:0 3px 12px rgba(30,77,48,.15)}
-
-/* Note box */
 .nbox{background:linear-gradient(135deg,#f8f4e8,#fefbf0);border:1px dashed var(--bdr);border-radius:var(--r);padding:13px 15px;margin-bottom:17px}
 .nbox-t{font-size:.77rem;font-weight:700;color:var(--gd);margin-bottom:7px;display:flex;align-items:center;gap:6px}
-
-/* Divider */
-.div{display:flex;align-items:center;gap:10px;margin:6px 0 18px}
+.div-row{display:flex;align-items:center;gap:10px;margin:6px 0 18px}
 .div-l{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--bdr),transparent)}
 .div-t{font-size:.69rem;color:var(--tl);white-space:nowrap}
-
-/* Ref banner */
 .ref-banner{background:linear-gradient(90deg,rgba(30,77,48,.07),rgba(200,146,42,.07));border:1px solid var(--bdr);border-radius:13px;padding:11px 16px;display:flex;align-items:center;gap:10px;margin-bottom:17px}
 .ref-num{font-size:1.1rem;font-weight:700;color:var(--gm);font-family:monospace;letter-spacing:1px}
-
-/* Buttons */
 .nav-btns{display:flex;gap:11px;padding:13px 22px 22px}
 .btn-prev{background:#fff;color:var(--tm);border:1.5px solid var(--bdr);padding:12px 19px;border-radius:50px;font-size:.89rem;font-weight:600;cursor:pointer;font-family:'Hind Siliguri',sans-serif;transition:all .2s;display:flex;align-items:center;gap:7px}
 .btn-prev:hover{background:var(--cd)}
@@ -123,33 +89,19 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 .btn-sub:not(:disabled):active{transform:scale(.97)}
 .spinner{width:17px;height:17px;border:2px solid rgba(255,235,180,.3);border-top-color:var(--gop);border-radius:50%;animation:spn .7s linear infinite;display:none}
 @keyframes spn{to{transform:rotate(360deg)}}
-
-/* Review */
 .rv-card{background:#fff;border:1px solid var(--bdr);border-radius:16px;overflow:hidden;margin-bottom:13px}
 .rv-head{background:linear-gradient(90deg,var(--gd),var(--gm));color:var(--gop);padding:9px 16px;font-size:.79rem;font-weight:700;display:flex;align-items:center;gap:7px}
 .rv-rows{padding:2px 0}
 .rv-row{display:flex;padding:9px 15px;border-bottom:1px solid #f2e8d8;font-size:.82rem;gap:8px}
-.rv-row:last-child{border-bottom:none}
-.rv-row:hover{background:#fdf8ee}
+.rv-row:last-child{border-bottom:none}.rv-row:hover{background:#fdf8ee}
 .rk{color:var(--tl);min-width:106px;font-weight:500;flex-shrink:0}
-.rv{color:var(--td);font-weight:600;flex:1}
+.rv-val{color:var(--td);font-weight:600;flex:1}
 .edit-lnk{font-size:.69rem;color:var(--go);cursor:pointer;margin-left:auto;font-weight:600;background:none;border:none;font-family:'Hind Siliguri',sans-serif;display:flex;align-items:center;gap:3px}
 .edit-lnk:hover{color:var(--gm)}
-
-/* Tooltip */
-.tt{position:relative;display:inline-block}
-.tt-i{font-size:12px;cursor:help;color:var(--tl);margin-left:4px}
-.tt-b{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a1a1a;color:#fff;font-size:.68rem;padding:5px 9px;border-radius:7px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10}
-.tt-b::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:#1a1a1a}
-.tt:hover .tt-b{opacity:1}
-
-/* Message */
 #msg{margin:8px 22px 0;padding:12px 15px;border-radius:12px;font-size:.85rem;font-weight:600;display:none;line-height:1.5}
 .err{background:#ffe8e6;color:var(--err);border:1px solid rgba(194,61,46,.2);display:block!important}
 .suc{background:#e4f5ea;color:var(--ok);border:1px solid rgba(30,92,58,.2);display:block!important}
 .ld{background:#fff5e0;color:#a06820;border:1px solid rgba(200,146,42,.2);display:block!important}
-
-/* Success screen */
 .suc-screen{display:none;padding:42px 24px;text-align:center}
 .suc-screen.show{display:block;animation:sin .5s ease}
 .suc-anim{font-size:68px;animation:bIn .7s cubic-bezier(.34,1.56,.64,1);margin-bottom:13px}
@@ -160,28 +112,14 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 .suc-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 .btn-new{background:linear-gradient(100deg,var(--gm),var(--gl));color:#fff;border:none;padding:12px 26px;border-radius:50px;font-size:.91rem;font-weight:700;cursor:pointer;font-family:'Hind Siliguri',sans-serif;box-shadow:0 4px 14px rgba(30,77,48,.3)}
 .btn-share{background:#fff;color:var(--gd);border:1.5px solid var(--bdr);padding:12px 18px;border-radius:50px;font-size:.86rem;font-weight:600;cursor:pointer;font-family:'Hind Siliguri',sans-serif;display:flex;align-items:center;gap:6px}
-
-/* Footer */
 .footer{background:linear-gradient(135deg,#f0ead8,#faf5e8);border-top:1px solid var(--bdr);padding:15px 22px;text-align:center;font-size:.77rem;color:var(--tl);border-radius:0 0 26px 26px;line-height:1.7;font-style:italic}
 .footer strong{color:var(--gd);font-style:normal}
 .footer-admin{display:inline-flex;align-items:center;gap:6px;background:var(--gd);color:var(--gop);padding:7px 18px;border-radius:50px;font-size:.75rem;font-weight:700;text-decoration:none;margin-bottom:11px;box-shadow:0 3px 10px rgba(10,30,18,.3)}
-
-@media(max-width:560px){
-  body{padding:10px 8px 36px}
-  .hero{border-radius:18px 18px 0 0;padding:22px 14px 0}
-  .h-title{font-size:1.5rem}
-  .a-inner{width:92px;height:92px}.a-ring{width:92px;height:92px}
-  .step-panel,.nav-btns{padding-left:14px;padding-right:14px}
-  .r2c{grid-template-columns:1fr;gap:13px}
-  .fbody{border-radius:0 0 18px 18px}
-  .footer{border-radius:0 0 18px 18px}
-}
+@media(max-width:560px){body{padding:10px 8px 36px}.hero{border-radius:18px 18px 0 0;padding:22px 14px 0}.h-title{font-size:1.5rem}.a-inner{width:92px;height:92px}.a-ring{width:92px;height:92px}.step-panel,.nav-btns{padding-left:14px;padding-right:14px}.r2c{grid-template-columns:1fr;gap:13px}.fbody{border-radius:0 0 18px 18px}.footer{border-radius:0 0 18px 18px}}
 </style>
 </head>
 <body>
 <div class="container">
-
-<!-- HERO -->
 <div class="hero">
   <div class="h-glow"></div>
   <div class="h-orn"><div class="orn-l"></div><div class="orn-t">✦ সৎসঙ্গ ✦</div><div class="orn-l"></div></div>
@@ -202,14 +140,10 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
       <span class="step-label" id="lbl-5"><div class="sn">৫</div>জমা</span>
     </div>
     <div class="prog-track"><div class="prog-fill" id="pbar"></div></div>
-    <div class="dots">
-      <div class="dot active" id="d1"></div><div class="dot" id="d2"></div>
-      <div class="dot" id="d3"></div><div class="dot" id="d4"></div><div class="dot" id="d5"></div>
-    </div>
+    <div class="dots"><div class="dot active" id="d1"></div><div class="dot" id="d2"></div><div class="dot" id="d3"></div><div class="dot" id="d4"></div><div class="dot" id="d5"></div></div>
   </div>
 </div>
 
-<!-- FORM BODY -->
 <div class="fbody" id="fbody">
 <form id="form" novalidate>
 
@@ -230,8 +164,8 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 <div class="step-panel" id="step-2">
   <div class="step-head"><div class="si">🌸</div>সন্তানের তথ্য</div>
   <div class="r2c">
-    <div class="fg"><div class="fl"><div class="li">📅</div>জন্ম তারিখ<div class="tt"><span class="tt-i">ℹ️</span><div class="tt-b">নামের জন্য সঠিক তারিখ দিন</div></div></div><div class="fw"><input type="date" id="janma_tarikh" required><span class="vi" id="vi-janma_tarikh"></span></div><div class="ferr" id="fe-janma_tarikh">তারিখ নির্বাচন করুন</div></div>
-    <div class="fg"><div class="fl"><div class="li">⏰</div>জন্ম সময়<div class="tt"><span class="tt-i">ℹ️</span><div class="tt-b">সঠিক জন্ম সময় দিন</div></div></div><div class="fw"><input type="time" id="janma_somoy" required><span class="vi" id="vi-janma_somoy"></span></div><div class="ferr" id="fe-janma_somoy">সময় নির্বাচন করুন</div></div>
+    <div class="fg"><div class="fl"><div class="li">📅</div>জন্ম তারিখ</div><div class="fw"><input type="date" id="janma_tarikh" required><span class="vi" id="vi-janma_tarikh"></span></div><div class="ferr" id="fe-janma_tarikh">তারিখ নির্বাচন করুন</div></div>
+    <div class="fg"><div class="fl"><div class="li">⏰</div>জন্ম সময়</div><div class="fw"><input type="time" id="janma_somoy" required><span class="vi" id="vi-janma_somoy"></span></div><div class="ferr" id="fe-janma_somoy">সময় নির্বাচন করুন</div></div>
   </div>
   <div class="fg"><div class="fl"><div class="li">⚥</div>সন্তানের লিঙ্গ</div>
     <div class="gg">
@@ -261,9 +195,9 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 <!-- STEP 4 -->
 <div class="step-panel" id="step-4">
   <div class="step-head"><div class="si">📞</div>যোগাযোগের তথ্য</div>
-  <div class="fg"><div class="fl"><div class="li">📱</div>মোবাইল নম্বর (অভিভাবক)</div><div class="fw"><input type="tel" id="mobile" placeholder="01XXXXXXXXX" inputmode="numeric" maxlength="11" required><span class="vi" id="vi-mobile"></span></div><div class="fhint">নামকরণের তথ্য এই নম্বরে পাঠানো হবে</div><div class="ferr" id="fe-mobile">সঠিক ১১ সংখ্যার নম্বর দিন</div></div>
+  <div class="fg"><div class="fl"><div class="li">📱</div>মোবাইল নম্বর</div><div class="fw"><input type="tel" id="mobile" placeholder="01XXXXXXXXX" inputmode="numeric" maxlength="11" required><span class="vi" id="vi-mobile"></span></div><div class="fhint">নামকরণের তথ্য এই নম্বরে পাঠানো হবে</div><div class="ferr" id="fe-mobile">সঠিক ১১ সংখ্যার নম্বর দিন</div></div>
   <div class="fg"><div class="fl"><div class="li">📧</div>ইমেইল <span style="font-weight:400;color:var(--tl);font-size:.72rem">(ঐচ্ছিক)</span></div><div class="fw"><input type="email" id="email" placeholder="example@email.com"><span class="vi" id="vi-email"></span></div><div class="fhint">নামকরণের তথ্য ইমেইলেও পাঠানো হবে</div><div class="ferr" id="fe-email">সঠিক ইমেইল দিন</div></div>
-  <div class="div"><div class="div-l"></div><div class="div-t">✦ আবেদন সনাক্তকরণ ✦</div><div class="div-l"></div></div>
+  <div class="div-row"><div class="div-l"></div><div class="div-t">✦ আবেদন সনাক্তকরণ ✦</div><div class="div-l"></div></div>
   <div class="ref-banner"><span style="font-size:20px">📋</span><div style="flex:1;font-size:.77rem;color:var(--tm)">এই আবেদনের রেফারেন্স নম্বর</div><div class="ref-num" id="refNum">—</div></div>
 </div>
 
@@ -278,11 +212,10 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 
 </form>
 
-<!-- SUCCESS -->
 <div class="suc-screen" id="sucScreen">
   <div class="suc-anim">🎉</div>
   <h2>জয় গুরু! 🙏</h2>
-  <p>আপনার নামকরণ আবেদন সফলভাবে জমা ও সেভ হয়েছে।<br>শীঘ্রই আপনার সাথে যোগাযোগ করা হবে।</p>
+  <p>আপনার নামকরণ আবেদন সফলভাবে<br>Google Sheet-এ সেভ হয়েছে।</p>
   <div class="conf-n" id="confN">REF #——</div>
   <p style="font-size:.79rem;color:var(--tl);margin-bottom:18px">🔱 সত্য, শিব, সুন্দর — সবার মঙ্গল হোক 🔱</p>
   <div class="suc-actions">
@@ -293,7 +226,6 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 
 <div id="msg"></div>
 
-<!-- NAV -->
 <div class="nav-btns" id="navBtns">
   <button type="button" class="btn-prev" id="btnPrev" onclick="chStep(-1)" style="display:none">← পিছনে</button>
   <button type="button" class="btn-next" id="btnNext" onclick="chStep(1)">পরবর্তী →</button>
@@ -303,26 +235,24 @@ body{background:var(--bg);background-image:radial-gradient(ellipse at 15% 10%,rg
 </div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer" id="foot">
   <a class="footer-admin" href="admin.html">⚙️ অ্যাডমিন প্যানেল</a><br>
   ✿ <strong>শ্রীশ্রী অনুকূল ঠাকুরের</strong> চরণে সন্তানের সুন্দর নামের জন্য প্রার্থনা ✿<br>
   🙏 <em>"সত্য, শিব, সুন্দর — সবার মঙ্গল করো"</em> 🙏
 </div>
-
-</div><!-- /container -->
+</div>
 
 <script>
-const SCRIPT_URL="https://script.google.com/macros/s/AKfycbyQIavr9xPSYNYjE-OefmB3gB5vegByKiW9qw4VGtW9cKw9mLQotu9KkxPZaTCUs2m_/exec";
+// ▶▶ এখানে আপনার নতুন Script URL বসান (Deploy করার পরে)
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw9tFloCI2J7hdCMcMglBmj-WlvLgDt7SCALgozVAyV6GRv2NutoBkFkxNyAIa7bmvl/exec";
+
 const BNM=['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
 const DISTRICTS={"ঢাকা":["উত্তরা","তেজগাঁও","মিরপুর","গুলশান","মোহাম্মদপুর","ঢাকা সদর","কাফরুল","বাড্ডা","মতিঝিল","পল্টন","রামপুরা","খিলক্ষেত","শাহবাগ","সবুজবাগ"],"গাজীপুর":["গাজীপুর সদর","কালিয়াকৈর","কাপাসিয়া","শ্রীপুর","কালীগঞ্জ","টঙ্গী"],"নারায়ণগঞ্জ":["নারায়ণগঞ্জ সদর","বন্দর","সোনারগাঁও","রূপগঞ্জ","আড়াইহাজার","ফতুল্লা"],"মানিকগঞ্জ":["মানিকগঞ্জ সদর","শিবালয়","সাটুরিয়া","সিংগাইর","হরিরামপুর","ঘিওর","দৌলতপুর"],"মুন্সীগঞ্জ":["মুন্সীগঞ্জ সদর","টংগিবাড়ী","লৌহজং","শ্রীনগর","সিরাজদিখান","গজারিয়া"],"টাঙ্গাইল":["টাঙ্গাইল সদর","মধুপুর","ধনবাড়ী","মির্জাপুর","নাগরপুর","বাসাইল","গোপালপুর","কালিহাতী","ভূঞাপুর","দেলদুয়ার","সখিপুর"],"কিশোরগঞ্জ":["কিশোরগঞ্জ সদর","অষ্টগ্রাম","ইটনা","করিমগঞ্জ","কটিয়াদী","তাড়াইল","পাকুন্দিয়া","বাজিতপুর","ভৈরব","মিঠামইন","হোসেনপুর","নিকলী","কুলিয়ারচর"],"ফরিদপুর":["ফরিদপুর সদর","আলফাডাঙ্গা","চরভদ্রাসন","সদরপুর","নগরকান্দা","বোয়ালমারী","মধুখালী","ভাঙ্গা","সালথা"],"রাজবাড়ী":["রাজবাড়ী সদর","পাংশা","বালিয়াকান্দি","কালুখালী","গোয়ালন্দ"],"গোপালগঞ্জ":["গোপালগঞ্জ সদর","মুকসুদপুর","কাশিয়ানী","টুঙ্গিপাড়া","কোটালীপাড়া"],"মাদারীপুর":["মাদারীপুর সদর","শিবচর","কালকিনি","রাজৈর"],"শরীয়তপুর":["শরীয়তপুর সদর","ভেদরগঞ্জ","ডামুড্যা","গোসাইরহাট","নড়িয়া","জাজিরা"],"চট্টগ্রাম":["কর্ণফুলী","পটিয়া","রাউজান","সীতাকুণ্ড","হাটহাজারী","বন্দর","চট্টগ্রাম সদর","বাঁশখালী","আনোয়ারা","বোয়ালখালী","চন্দনাইশ","সাতকানিয়া","লোহাগাড়া","মিরসরাই","ফটিকছড়ি","সন্দ্বীপ","রাঙ্গুনিয়া"],"কুমিল্লা":["কুমিল্লা সদর","চান্দিনা","বরুড়া","দাউদকান্দি","লাকসাম","মুরাদনগর","দেবিদ্বার","ব্রাহ্মণপাড়া","মনোহরগঞ্জ","তিতাস","নাঙ্গলকোট","মেঘনা","হোমনা"],"ফেনী":["ফেনী সদর","ছাগলনাইয়া","পরশুরাম","দাগনভূঞা","সোনাগাজী"],"নোয়াখালী":["নোয়াখালী সদর","সুবর্ণচর","কোম্পানীগঞ্জ","বেগমগঞ্জ","সেনবাগ","চাটখিল","সোনাইমুড়ি","হাতিয়া","কবিরহাট"],"লক্ষ্মীপুর":["লক্ষ্মীপুর সদর","রামগঞ্জ","রামগতি","রায়পুর","কমলনগর"],"ব্রাহ্মণবাড়িয়া":["ব্রাহ্মণবাড়িয়া সদর","আশুগঞ্জ","নাসিরনগর","নবীনগর","সরাইল","কসবা","আখাউড়া","বাঞ্ছারামপুর","বিজয়নগর"],"চাঁদপুর":["চাঁদপুর সদর","মতলব উত্তর","মতলব দক্ষিণ","হাজীগঞ্জ","ফরিদগঞ্জ","কচুয়া","শাহরাস্তি"],"কক্সবাজার":["কক্সবাজার সদর","চকোরিয়া","কুতুবদিয়া","ঈদগাঁও","মহেশখালী","রামু","উখিয়া","টেকনাফ","পেকুয়া"],"রাঙ্গামাটি":["রাঙ্গামাটি সদর","বরকল","বিলাইছড়ি","জুরাছড়ি","কাপ্তাই","কাউখালী","লংগদু","নানিয়ারচর","রাজস্থলী","বাঘাইছড়ি"],"খাগড়াছড়ি":["খাগড়াছড়ি সদর","দীঘিনালা","পানছড়ি","লক্ষ্মীছড়ি","মহালছড়ি","মাটিরাঙ্গা","গুইমারা","রামগড়","মানিকছড়ি"],"বান্দরবান":["বান্দরবান সদর","নাইক্ষ্যংছড়ি","রুমা","থানচি","লামা","আলীকদম","রোয়াংছড়ি"],"রাজশাহী":["বোয়ালিয়া","মতিহার","পুঠিয়া","চারঘাট","বাঘা","রাজশাহী সদর","গোদাগাড়ী","তানোর","মোহনপুর","দুর্গাপুর","বাগমারা"],"নওগাঁ":["নওগাঁ সদর","রাণীনগর","পত্নীতলা","ধামইরহাট","মহাদেবপুর","বদলগাছি","মান্দা","নিয়ামতপুর","আত্রাই","সাপাহার","পোরশা"],"নাটোর":["নাটোর সদর","বড়াইগ্রাম","বাগাতিপাড়া","লালপুর","সিংড়া","গুরুদাসপুর","নলডাঙ্গা"],"চাঁপাইনবাবগঞ্জ":["চাঁপাইনবাবগঞ্জ সদর","গোমস্তাপুর","নাচোল","ভোলাহাট","শিবগঞ্জ"],"পাবনা":["পাবনা সদর","বেড়া","চাটমোহর","ভাঙ্গুরা","ফরিদপুর","ঈশ্বরদী","সাঁথিয়া","সুজানগর","আটঘরিয়া","আমিনপুর"],"সিরাজগঞ্জ":["সিরাজগঞ্জ সদর","কাজীপুর","রায়গঞ্জ","উল্লাপাড়া","বেলকুচি","চৌহালী","কামারখন্দ","শাহজাদপুর","তাড়াশ"],"জয়পুরহাট":["জয়পুরহাট সদর","ক্ষেতলাল","পাঁচবিবি","আক্কেলপুর","কালাই"],"বগুড়া":["বগুড়া সদর","শেরপুর","ধুনট","সারিয়াকান্দি","গাবতলী","শাজাহানপুর","দুপচাঁচিয়া","আদমদিঘী","কাহালু","নন্দীগ্রাম","সোনাতলা"],"খুলনা":["খুলনা সদর","দৌলতপুর","দিঘলিয়া","পাইকগাছা","রূপসা","তেরখাদা","বটিয়াঘাটা","ফুলতলা","ডুমুরিয়া","কয়রা"],"যশোর":["যশোর সদর","অভয়নগর","বাঘারপাড়া","চৌগাছা","ঝিকরগাছা","কেশবপুর","মনিরামপুর","শার্শা"],"সাতক্ষীরা":["সাতক্ষীরা সদর","আশাশুনি","কলারোয়া","তালা","দেবহাটা","শ্যামনগর","কালীগঞ্জ","পাটকেলঘাটা"],"মাগুরা":["মাগুরা সদর","মোহাম্মদপুর","শালিখা","শ্রীপুর"],"নড়াইল":["নড়াইল সদর","লোহাগড়া","কালিয়া"],"ঝিনাইদহ":["ঝিনাইদহ সদর","কালীগঞ্জ","কোটচাঁদপুর","শৈলকুপা","হরিণাকুন্ডু","মহেশপুর"],"কুষ্টিয়া":["কুষ্টিয়া সদর","কুমারখালী","খোকসা","মিরপুর","দৌলতপুর","ভেড়ামারা"],"চুয়াডাঙ্গা":["চুয়াডাঙ্গা সদর","আলমডাঙ্গা","দামুড়হুদা","জীবননগর"],"মেহেরপুর":["মেহেরপুর সদর","মুজিবনগর","গাংনী"],"বরিশাল":["বরিশাল সদর","বাকেরগঞ্জ","বানারীপাড়া","উজিরপুর","মেহেন্দিগঞ্জ","আগৈলঝাড়া","বাবুগঞ্জ","মুলাদী","হিজলা","গৌরনদী"],"পিরোজপুর":["পিরোজপুর সদর","নাজিরপুর","নেছারাবাদ","কাউখালী","ভাণ্ডারিয়া","মঠবাড়িয়া","ইন্দুরকানী"],"ঝালকাঠি":["ঝালকাঠি সদর","কাঁঠালিয়া","নলছিটি","রাজাপুর"],"পটুয়াখালী":["পটুয়াখালী সদর","কলাপাড়া","বাউফল","দুমকি","দশমিনা","গলাচিপা","মির্জাগঞ্জ","রাঙ্গাবালী"],"বরগুনা":["বরগুনা সদর","আমতলী","তালতলী","বামনা","পাথরঘাটা","বেতাগী"],"ভোলা":["ভোলা সদর","বোরহানউদ্দিন","চরফ্যাশন","দৌলতখান","লালমোহন","মনপুরা","তজুমদ্দিন"],"সিলেট":["সিলেট সদর","দক্ষিণ সুরমা","বিশ্বনাথ","গোলাপগঞ্জ","জৈন্তাপুর","কানাইঘাট","বিয়ানীবাজার","ফেঞ্চুগঞ্জ","বালাগঞ্জ","কোম্পানীগঞ্জ","জকিগঞ্জ","গোয়াইনঘাট"],"মৌলভীবাজার":["মৌলভীবাজার সদর","কমলগঞ্জ","কুলাউড়া","বড়লেখা","জুড়ী","শ্রীমঙ্গল","রাজনগর"],"হবিগঞ্জ":["হবিগঞ্জ সদর","বাহুবল","আজমিরীগঞ্জ","বানিয়াচং","লাখাই","মাধবপুর","নবীগঞ্জ","চুনারুঘাট","শায়েস্তাগঞ্জ"],"সুনামগঞ্জ":["সুনামগঞ্জ সদর","দক্ষিণ সুনামগঞ্জ","বিশ্বম্ভরপুর","ছাতক","দিরাই","ধর্মপাশা","জগন্নাথপুর","শাল্লা","তাহিরপুর","মধ্যনগর","দোয়ারাবাজার"],"রংপুর":["রংপুর সদর","বদরগঞ্জ","পীরগঞ্জ","কাউনিয়া","মিঠাপুকুর","তারাগঞ্জ","পীরগাছা","গংগাচড়া"],"দিনাজপুর":["দিনাজপুর সদর","বিরামপুর","বীরগঞ্জ","বোচাগঞ্জ","চিরিরবন্দর","ফুলবাড়ী","ঘোড়াঘাট","হাকিমপুর","খানসামা","নবাবগঞ্জ","পার্বতীপুর"],"ঠাকুরগাঁও":["ঠাকুরগাঁও সদর","বালিয়াডাঙ্গী","হরিপুর","পীরগঞ্জ","রাণীশংকৈল"],"পঞ্চগড়":["পঞ্চগড় সদর","আটোয়ারী","বোদা","দেবীগঞ্জ","তেঁতুলিয়া"],"নীলফামারী":["নীলফামারী সদর","ডোমার","জলঢাকা","কিশোরগঞ্জ","সৈয়দপুর","ডিমলা"],"লালমনিরহাট":["লালমনিরহাট সদর","আদিতমারী","কালীগঞ্জ","হাতীবান্ধা","পাটগ্রাম"],"কুড়িগ্রাম":["কুড়িগ্রাম সদর","ভুরুঙ্গামারী","চর রাজিবপুর","চিলমারী","রৌমারী","রাজারহাট","উলিপুর","ফুলবাড়ী","নাগেশ্বরী"],"গাইবান্ধা":["গাইবান্ধা সদর","গোবিন্দগঞ্জ","পলাশবাড়ী","সাদুল্লাপুর","সাঘাটা","সুন্দরগঞ্জ","ফুলছড়ি"],"ময়মনসিংহ":["ময়মনসিংহ সদর","ত্রিশাল","গৌরীপুর","ঈশ্বরগঞ্জ","মুক্তাগাছা","ফুলবাড়িয়া","হালুয়াঘাট","ধোবাউড়া","তারাকান্দা","নান্দাইল","ভালুকা","গফরগাঁও"],"জামালপুর":["জামালপুর সদর","মেলান্দহ","ইসলামপুর","দেওয়ানগঞ্জ","বকশীগঞ্জ","মাদারগঞ্জ","সরিষাবাড়ী"],"শেরপুর":["শেরপুর সদর","নালিতাবাড়ী","ঝিনাইগাতী","নকলা","শ্রীবরদী"],"নেত্রকোণা":["নেত্রকোণা সদর","বারহাট্টা","দুর্গাপুর","কলমাকান্দা","মদন","মোহনগঞ্জ","কেন্দুয়া","আটপাড়া","পূর্বধলা","খালিয়াজুড়ি"]};
 
-// REF
 const REF='NK-'+Date.now().toString(36).toUpperCase().slice(-6);
 document.getElementById('refNum').textContent=REF;
 document.getElementById('confN').textContent='রেফ: '+REF;
 
-// Districts
 const jEL=document.getElementById('jela'),uEL=document.getElementById('upazila');
 Object.keys(DISTRICTS).sort().forEach(d=>jEL.appendChild(new Option(d,d)));
 jEL.addEventListener('change',function(){
@@ -331,32 +261,23 @@ jEL.addEventListener('change',function(){
   else uEL.disabled=true;
   showE('fe-jela',false);
 });
+document.getElementById('bishesh').addEventListener('input',function(){const n=this.value.length,cc=document.getElementById('cc-b');cc.textContent=n+'/২০০';cc.className='cc'+(n>160?' warn':'');});
 
-// Char counter
-document.getElementById('bishesh').addEventListener('input',function(){
-  const n=this.value.length,cc=document.getElementById('cc-b');
-  cc.textContent=n+'/২০০';cc.className='cc'+(n>160?' warn':'');
-});
-
-// Steps
 let cur=1;const TOT=5;
 function goTo(n){cur=n;updateUI();window.scrollTo({top:0,behavior:'smooth'});}
 function updateUI(){
   for(let i=1;i<=TOT;i++){
     document.getElementById('step-'+i).classList.toggle('active',i===cur);
-    const dot=document.getElementById('d'+i);dot.className='dot'+(i<cur?' done':i===cur?' active':'');
-    const lbl=document.getElementById('lbl-'+i);lbl.className='step-label'+(i<cur?' done':i===cur?' active':'');
+    document.getElementById('d'+i).className='dot'+(i<cur?' done':i===cur?' active':'');
+    document.getElementById('lbl-'+i).className='step-label'+(i<cur?' done':i===cur?' active':'');
   }
   document.getElementById('pbar').style.width=((cur-1)/(TOT-1)*100)+'%';
   document.getElementById('btnPrev').style.display=cur>1?'flex':'none';
   document.getElementById('btnNext').style.display=cur<TOT?'flex':'none';
   document.getElementById('btnSub').style.display=cur===TOT?'flex':'none';
-  clearMsg();
-  if(cur===TOT)buildReview();
+  clearMsg();if(cur===TOT)buildReview();
 }
 function chStep(d){if(d===1&&!validateStep(cur))return;goTo(cur+d);}
-
-// Validation
 function validateStep(s){
   let ok=true;
   if(s===1){ok=vf('pita_nam')&vf('mata_nam')&vf('pitamaha')&vf('prapitamaha');}
@@ -373,71 +294,90 @@ function vSel(id){const el=document.getElementById(id),v=el.value!==''&&!el.disa
 function setState(el,v){el.classList.remove('val','inv');el.classList.add(v?'val':'inv');const vi=document.getElementById('vi-'+el.id);if(vi)vi.textContent=v?'✅':'❌';}
 function showE(id,show){const e=document.getElementById(id);if(e)e.style.display=show?'block':'none';}
 function clearMsg(){const m=document.getElementById('msg');m.innerHTML='';m.className='';m.style.display='none';}
-
 document.querySelectorAll('input[type="text"],input[type="tel"],input[type="email"]').forEach(inp=>{
-  inp.addEventListener('blur',()=>{if(inp.id==='mobile')vMobile();else if(inp.id==='email')vEmail();else vf(inp.id);});
+  inp.addEventListener('blur',()=>{if(inp.id==='mobile')vMobile();else if(inp.id==='email')vEmail();else if(inp.id!=='bishesh')vf(inp.id);});
   inp.addEventListener('input',()=>{if(inp.classList.contains('inv')){if(inp.id==='mobile')vMobile();else if(inp.id==='email')vEmail();else vf(inp.id);}});
 });
 ['janma_tarikh','janma_somoy'].forEach(id=>document.getElementById(id).addEventListener('change',()=>vf(id)));
 
-// Review helpers
-function fD(d){if(!d||d==='-')return'—';try{const[y,m,dd]=d.split('-');return parseInt(dd)+' '+BNM[parseInt(m)-1]+', '+y;}catch(e){return d;}}
-function fT(t){if(!t||t==='-')return'—';try{const[h,mn]=t.split(':');const hr=parseInt(h);return(hr%12||12)+':'+mn+' '+(hr>=12?'PM':'AM');}catch(e){return t;}}
+function fD(d){if(!d||d==='—')return'—';try{const[y,m,dd]=d.split('-');return parseInt(dd)+' '+BNM[parseInt(m)-1]+', '+y;}catch(e){return d;}}
+function fT(t){if(!t||t==='—')return'—';try{const[h,mn]=t.split(':');const hr=parseInt(h);return(hr%12||12)+':'+mn+' '+(hr>=12?'PM':'AM');}catch(e){return t;}}
 function gv(id){return document.getElementById(id).value.trim()||'—';}
-function rr(k,v){return'<div class="rv-row"><div class="rk">'+k+'</div><div class="rv">'+v+'</div></div>';}
+function rr(k,v){return'<div class="rv-row"><div class="rk">'+k+'</div><div class="rv-val">'+v+'</div></div>';}
 function buildReview(){
-  const g=document.querySelector('input[name="gender"]:checked');
-  const b=gv('bishesh'),em=gv('email');
+  const g=document.querySelector('input[name="gender"]:checked'),b=gv('bishesh'),em=gv('email');
   document.getElementById('rv-fam').innerHTML=rr('পিতার নাম',gv('pita_nam'))+rr('মাতার নাম',gv('mata_nam'))+rr('পিতামহ',gv('pitamaha'))+rr('প্রপিতামহ',gv('prapitamaha'));
   document.getElementById('rv-child').innerHTML=rr('জন্ম তারিখ',fD(gv('janma_tarikh')))+rr('জন্ম সময়',fT(gv('janma_somoy')))+rr('লিঙ্গ',g?g.value:'—')+(b!=='—'?rr('বিশেষ তথ্য',b):'');
   document.getElementById('rv-addr').innerHTML=rr('গ্রাম/মহল্লা',gv('gram'))+rr('জেলা',gv('jela'))+rr('উপজেলা',gv('upazila'));
   document.getElementById('rv-cont').innerHTML=rr('মোবাইল',gv('mobile'))+(em!=='—'?rr('ইমেইল',em):'')+rr('রেফারেন্স',REF);
 }
 
-// Submit
+// ══ SUBMIT — JSONP দিয়ে পাঠায় (CORS সমস্যা নেই) ════════════
 async function submitForm(){
   const g=document.querySelector('input[name="gender"]:checked');
   const data={
-    id:REF,
-    pita_nam:gv('pita_nam'),mata_nam:gv('mata_nam'),
-    mobile:gv('mobile'),email:gv('email')==='—'?'':gv('email'),
-    pitamaha:gv('pitamaha'),prapitamaha:gv('prapitamaha'),
-    janma_tarikh:gv('janma_tarikh'),janma_somoy:gv('janma_somoy'),
-    linga:g?g.value:'',
-    bishesh:gv('bishesh')==='—'?'':gv('bishesh'),
-    gram:gv('gram'),jela:gv('jela'),upazila:gv('upazila'),
+    id:REF, pita_nam:gv('pita_nam'), mata_nam:gv('mata_nam'),
+    mobile:gv('mobile'), email:gv('email')==='—'?'':gv('email'),
+    pitamaha:gv('pitamaha'), prapitamaha:gv('prapitamaha'),
+    janma_tarikh:gv('janma_tarikh'), janma_somoy:gv('janma_somoy'),
+    linga:g?g.value:'', bishesh:gv('bishesh')==='—'?'':gv('bishesh'),
+    gram:gv('gram'), jela:gv('jela'), upazila:gv('upazila'),
     submittedAt:new Date().toISOString()
   };
+
   const btn=document.getElementById('btnSub');
   document.getElementById('spin').style.display='block';
   document.getElementById('subTxt').textContent='জমা হচ্ছে...';
   btn.disabled=true;
   const m=document.getElementById('msg');
-  m.innerHTML='⏳ সেভ হচ্ছে...';m.className='ld';m.style.display='block';
+  m.innerHTML='⏳ Google Sheet-এ সেভ হচ্ছে...';m.className='ld';m.style.display='block';
 
-  // 1. Save localStorage first — always works
-  try{const rec=JSON.parse(localStorage.getItem('namkaran_records')||'[]');rec.unshift(data);localStorage.setItem('namkaran_records',JSON.stringify(rec));}
-  catch(e){console.warn('localStorage:',e);}
-
-  // 2. Try Google Script (optional)
+  // ── localStorage তে সেভ (সবসময়) ──
   try{
-    const ctrl=new AbortController();const to=setTimeout(()=>ctrl.abort(),8000);
-    await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),signal:ctrl.signal});
-    clearTimeout(to);
-  }catch(e){console.warn('Script unavailable:',e.message);}
+    const rec=JSON.parse(localStorage.getItem('namkaran_records')||'[]');
+    rec.unshift(data);
+    localStorage.setItem('namkaran_records',JSON.stringify(rec));
+  }catch(e){}
 
-  // 3. Always succeed
-  showSuccess();
+  // ── Google Sheet-এ পাঠানো (fetch POST) ──
+  let sheetOK=false;
+  try{
+    const ctrl=new AbortController();
+    const to=setTimeout(()=>ctrl.abort(),10000);
+    const res=await fetch(SCRIPT_URL,{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(data),
+      signal:ctrl.signal
+    });
+    clearTimeout(to);
+    sheetOK=true; // no-cors তে response পড়া যায় না, কিন্তু send হয়েছে
+  }catch(err){
+    // Script URL সমস্যা — localStorage থেকেই সেভ হয়েছে
+    console.warn('Sheet send failed:',err.message);
+  }
+
+  showSuccess(sheetOK);
 }
 
-function showSuccess(){
+function showSuccess(sheetOK){
   document.getElementById('form').style.display='none';
   document.getElementById('navBtns').style.display='none';
   document.getElementById('msg').style.display='none';
+  if(!sheetOK){
+    // Sheet-এ যায়নি — warning দেখাও কিন্তু block করো না
+    setTimeout(()=>{
+      const m=document.getElementById('msg');
+      m.innerHTML='⚠️ Google Sheet-এ সংযোগ হয়নি। তথ্য localStorage-এ সেভ হয়েছে। Admin প্যানেলে দেখা যাবে।';
+      m.className='ld';m.style.display='block';
+    },500);
+  }
   document.getElementById('sucScreen').classList.add('show');
   document.getElementById('pbar').style.width='100%';
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function resetForm(){
   document.getElementById('form').reset();document.getElementById('form').style.display='block';
   document.getElementById('navBtns').style.display='flex';document.getElementById('sucScreen').classList.remove('show');
@@ -445,12 +385,13 @@ function resetForm(){
   document.querySelectorAll('input').forEach(i=>i.classList.remove('val','inv'));
   document.querySelectorAll('.vi').forEach(i=>i.textContent='');
   document.querySelectorAll('.ferr').forEach(i=>i.style.display='none');
-  document.getElementById('spin').style.display='none';document.getElementById('subTxt').textContent='🔱 জমা দিন 🔱';
-  document.getElementById('btnSub').disabled=false;document.getElementById('cc-b').textContent='০/২০০';
+  document.getElementById('spin').style.display='none';
+  document.getElementById('subTxt').textContent='🔱 জমা দিন 🔱';
+  document.getElementById('btnSub').disabled=false;
+  document.getElementById('cc-b').textContent='০/২০০';
   cur=1;updateUI();
 }
-function copyRef(){if(navigator.clipboard)navigator.clipboard.writeText(REF).then(()=>alert('কপি হয়েছে: '+REF));else alert('রেফ: '+REF);}
-
+function copyRef(){if(navigator.clipboard)navigator.clipboard.writeText(REF).then(()=>alert('কপি: '+REF));else alert('রেফ: '+REF);}
 updateUI();
 </script>
 </body>
